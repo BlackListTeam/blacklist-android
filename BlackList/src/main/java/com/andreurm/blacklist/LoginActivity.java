@@ -23,6 +23,7 @@ public class LoginActivity extends Activity {
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
+     * CAMBIOS DE PRUEBA PARA HACER PUSH GIT
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello",
