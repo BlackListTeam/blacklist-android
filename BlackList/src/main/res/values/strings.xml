@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">BlackList</string>
-    <string name="title_activity_code_promotor">CodePromotorActivity</string>
+    <string name="app_name">Json</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+
+    <string name="promo_label">APP DE USO RESTRINGIDO A MIEMBROS DE \'BLACKLIST\'</string>
+    <string name="bebas_neue">fonts/BebasNeue.otf</string>
+    <string name="logo">Logo</string>
+    <string name="password">contraseña</string>
 
 </resources>
