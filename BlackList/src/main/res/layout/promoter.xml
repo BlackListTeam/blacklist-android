@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bkg"
+                android:focusableInTouchMode="false">
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true">
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView"
+                android:src="@drawable/logo_black"
+                android:layout_alignBottom="@+id/promoWrapper"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="150dp"
+                android:contentDescription="@string/logo"/>
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/promo_bkg"
+                android:id="@+id/promoWrapper"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="false"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="290dp">
+
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/promo_label"
+                        android:id="@+id/textView"
+                        android:layout_alignBottom="@+id/promoInput"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="33dp"
+                        android:textColor="#ffffff"
+                        android:textSize="14sp"
+                        android:textIsSelectable="false"/>
+
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"
+                        android:id="@+id/promoInput"
+                        android:background="@drawable/promo_input"
+                        android:gravity="center"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="24dp"
+                        android:inputType="text"
+                        android:cursorVisible="false"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</RelativeLayout>
