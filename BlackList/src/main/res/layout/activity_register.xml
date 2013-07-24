@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkg"
+    android:focusableInTouchMode="false">
+
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/contenido"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/autorizacionverificada"
+            android:id="@+id/textViewAutoriza"
+            android:textColor="#00ccb6"
+            android:textSize="14sp"
+            android:textIsSelectable="false"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"/>
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:id="@+id/promoWrapper"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/box_register"
+            android:layout_below="@+id/textView"
+            android:layout_marginTop="30dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/completa"
+                android:id="@+id/textViewCompleta"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textIsSelectable="false"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"/>
+
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:id="@+id/promoInput"
+                    android:background="@drawable/promo_input"
+                    android:gravity="center"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="60dp"
+                    android:inputType="text"
+                    android:cursorVisible="false"
+                    android:hint="Nombre y apellidos"/>
+
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:id="@+id/promoInput"
+                android:background="@drawable/promo_input"
+                android:gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="100dp"
+                android:inputType="text"
+                android:cursorVisible="false"
+                android:hint="E-mail"/>
+
+        <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:id="@+id/promoInput"
+                android:background="@drawable/promo_input"
+                android:gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="144dp"
+                android:inputType="text"
+                android:cursorVisible="false"
+                android:hint="Año de nacimiento"/>
+
+    </RelativeLayout>
+
+    <ImageButton
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:id="@+id/button"
+            android:background="@drawable/button_ok"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentStart="false"
+            android:layout_below="@+id/promoWrapper"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"/>
+
+        <ImageButton
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:id="@+id/button"
+                android:background="@drawable/button_acceso"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentStart="false"
+                android:layout_below="@+id/promoWrapper"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="100dp"/>
+
+</RelativeLayout>
+
+</RelativeLayout>

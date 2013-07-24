@@ -4,10 +4,18 @@
     <string name="app_name">Json</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
     <string name="promo_label">APP DE USO RESTRINGIDO A MIEMBROS DE \'BLACKLIST\'</string>
+    <string name="autorizacionverificada">AUTORIZACIÓN VERIFICADA</string>
+    <string name="completa">POR FAVOR, COMPLETA CON TUS DATOS</string>
+    <string name="peticion_procesada">PETICIÓN PROCESADA</string>
+    <string name="bienvenido">BIENVENIDO A \'BLACKLIST\'</string>
+    <string name="mail_enviado">HEMOS ENVIADO UN E-MAIL A LA CUENTA DE CORREO FACILITADA</string>
+    <string name="revisa_datos">REVÍSALO PARA SABER TUS DATOS DE ACCESO</string>
+    <string name="minutos_pasados">SI PASADOS UNOS MINUTOS NO RECIBES NINGÚN E-MAIL, POR FAVOR,</string>
     <string name="bebas_neue">fonts/BebasNeue.otf</string>
     <string name="logo">Logo</string>
     <string name="password">contraseña</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_register_ok">RegisterOkActivity</string>
 
 </resources>

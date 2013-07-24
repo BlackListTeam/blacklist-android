@@ -10,7 +10,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:id="@+id/relativeLayout">
 
         <ImageView
                 android:layout_width="wrap_content"
@@ -66,6 +67,22 @@
 
         </RelativeLayout>
 
+        <ImageButton
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:id="@+id/button"
+                android:background="@drawable/button_ok"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentStart="false"
+                android:layout_below="@+id/promoWrapper"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"/>
 
     </RelativeLayout>
+
+
+
+
 </RelativeLayout>

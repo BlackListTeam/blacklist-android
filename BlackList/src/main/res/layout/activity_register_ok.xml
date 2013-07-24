@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bkg"
+                android:focusableInTouchMode="false">
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/relativeLayout">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/peticion_procesada"
+                android:id="@+id/textViewPeticion"
+                android:textColor="#00ccb6"
+                android:textSize="15sp"
+                android:textIsSelectable="false"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"/>
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/promo_bkg"
+                android:id="@+id/promoWrapper"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="false"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bienvenido"
+                    android:id="@+id/textViewBienvenido"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:textIsSelectable="false"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"/>
+
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mail_enviado"
+                    android:id="@+id/textViewMailEnviado"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp"
+                    android:textIsSelectable="false"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="60dp"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/revisa_datos"
+                    android:id="@+id/textViewRevisalo"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp"
+                    android:textIsSelectable="false"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="80dp"/>
+
+        </RelativeLayout>
+
+        <ImageButton
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:id="@+id/button"
+                android:background="@drawable/button_acceder"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentStart="false"
+                android:layout_below="@+id/promoWrapper"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewPasadosMinutos"
+                android:text="@string/minutos_pasados"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentStart="false"
+                android:layout_below="@+id/promoWrapper"
+                android:layout_centerHorizontal="true"
+                android:textColor="#aaaaaa"
+                android:textSize="13sp"
+                android:layout_marginTop="150dp"/>
+
+        <ImageButton
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:id="@+id/button"
+                android:background="@drawable/contacta"
+                android:layout_alignParentEnd="false"
+                android:layout_alignParentStart="false"
+                android:layout_below="@+id/promoWrapper"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="180dp"/>
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>
