@@ -35,5 +35,16 @@
     <string name="email">E-mail</string>
     <string name="birth_year">Año de nacimiento</string>
     <string name="go_login">Go login</string>
+    <string name="contact">Contacto</string>
+    <string name="email_to">info@blacklistmeetings.com</string>
+    <string name="email_chooser_title">Enviar Email</string>
+    <string name="email_mime_type">message/rfc822</string>
+    <string name="no_email_error">No hay ningún cliente de email instalado.</string>
+    <string name="empty_string"/>
+    <string name="login">login</string>
+    <string name="solicitar_datos">solicitar datos</string>
+    <string name="login_problems">Problemas para acceder</string>
+    <string name="acceder">Acceder</string>
+    <string name="contactar">contactar</string>
 
 </resources>

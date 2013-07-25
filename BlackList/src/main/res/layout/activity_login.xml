@@ -34,13 +34,13 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/editText"
+            android:id="@+id/login_name"
             android:background="@drawable/input"
             android:textColor="#ffffff"
             android:gravity="center"
 
-            android:layout_alignLeft="@+id/editText2"
-            android:layout_alignRight="@+id/editText2"
+            android:layout_alignLeft="@+id/login_password"
+            android:layout_alignRight="@+id/login_password"
             android:cursorVisible="false"/>
 
     <EditText
@@ -48,11 +48,11 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
-            android:id="@+id/editText2"
+            android:id="@+id/login_password"
             android:background="@drawable/input"
             android:textColor="#ffffff"
             android:gravity="center"
-            android:layout_alignTop="@+id/editText"
+            android:layout_alignTop="@+id/login_name"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="35dp"
             android:cursorVisible="false"
@@ -63,13 +63,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="fitCenter"
-            android:id="@+id/button"
+            android:id="@+id/login_ok"
             android:background="@drawable/button_ok"
             android:layout_alignParentEnd="false"
             android:layout_alignParentStart="false"
-            android:layout_below="@+id/editText2"
+            android:layout_below="@+id/login_password"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/login"/>
 </RelativeLayout>
         <RelativeLayout
                 android:layout_width="wrap_content"
@@ -88,19 +89,23 @@
                     android:background="@drawable/button_solicitar"
                     android:layout_alignParentEnd="false"
                     android:layout_alignParentStart="false"
-                    android:layout_marginTop="12dp"/>
+                    android:layout_marginTop="12dp"
+                    android:onClick="goToRegister"
+                    android:contentDescription="@string/solicitar_datos"/>
             <ImageButton
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="fitCenter"
-                    android:id="@+id/button"
+                    android:id="@+id/buttonProblemas"
                     android:background="@drawable/button_problemas"
                     android:layout_toRightOf="@+id/buttonSolicitar"
                     android:layout_alignParentEnd="false"
                     android:layout_alignParentStart="false"
                     android:layout_marginTop="12dp"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginLeft="10dp"
+                    android:onClick="problems"
+                    android:contentDescription="@string/login_problems"/>
 
             </RelativeLayout>
 

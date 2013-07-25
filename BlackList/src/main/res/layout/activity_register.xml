@@ -60,12 +60,13 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="60dp"
-                    android:inputType="text"
+                    android:inputType="text|textPersonName"
                     android:hint="@string/name_and_surnames"
                     android:cursorVisible="false"
                     android:imeOptions="actionDone"
                     android:ellipsize="end"
-                    android:textIsSelectable="false"/>
+                    android:textIsSelectable="false"
+                    android:textSize="14sp"/>
 
         <EditText
                 android:layout_width="wrap_content"
@@ -81,7 +82,8 @@
                 android:cursorVisible="false"
                 android:hint="@string/email"
                 android:imeOptions="actionDone"
-                android:ellipsize="end"/>
+                android:ellipsize="end"
+                android:textSize="14sp"/>
 
         <EditText
                 android:layout_width="wrap_content"
@@ -93,11 +95,12 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="144dp"
-                android:inputType="text"
                 android:cursorVisible="false"
                 android:hint="@string/birth_year"
                 android:imeOptions="actionDone"
-                android:ellipsize="end"/>
+                android:ellipsize="end"
+                android:textSize="14sp"
+                android:inputType="number"/>
 
     </RelativeLayout>
 

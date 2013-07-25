@@ -5,14 +5,11 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Hashtable;
 
 import cat.andreurm.blacklist.R;
@@ -33,7 +30,7 @@ public class PromoterCodeActivity extends Activity implements WebServiceCaller {
         u=new Utils(this);
 
         if(u.userAllowedToUseApp()){
-            //startActivity(new Intent(this,LoginActivity.class));
+            startActivity(new Intent(this,LoginActivity.class));
         }
 
         setContentView(R.layout.promoter);
@@ -69,14 +66,6 @@ public class PromoterCodeActivity extends Activity implements WebServiceCaller {
             String strJunk=getString(R.string.error_promo_code);
             Toast.makeText(getApplicationContext(), strJunk, Toast.LENGTH_SHORT).show();
         }
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
     }
 
     @Override

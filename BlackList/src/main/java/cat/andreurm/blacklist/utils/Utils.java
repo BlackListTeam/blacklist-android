@@ -42,7 +42,7 @@ public class Utils {
 
     public String retriveUserName(){
         SharedPreferences settings = act.getSharedPreferences(PREFS_NAME, 0);
-        String ret=settings.getString("userName", "");
+        String ret=settings.getString("userName", "Nombre");
         return ret;
     }
 

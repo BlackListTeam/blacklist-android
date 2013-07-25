@@ -6,9 +6,6 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.app.Activity;
-import android.text.Html;
-import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -134,7 +131,6 @@ public class RegisterActivity extends Activity implements WebServiceCaller {
     @Override
     public void webServiceReady(Hashtable result) {
         Boolean auth_error= (Boolean) result.get("authError");
-        Log.d("AND-Register",result.toString());
         if(auth_error){
             Toast.makeText(getApplicationContext(), getString(R.string.ws_connection_error), Toast.LENGTH_SHORT).show();
             return;
@@ -147,7 +143,6 @@ public class RegisterActivity extends Activity implements WebServiceCaller {
             u.saveUserName(message);
             startActivity(new Intent(this,RegisterOkActivity.class));
         }else{
-            //String strJunk=getString(R.string.error_promo_code);
             Toast.makeText(getApplicationContext(), (CharSequence) result.get("errorMessage"), Toast.LENGTH_SHORT).show();
         }
     }
