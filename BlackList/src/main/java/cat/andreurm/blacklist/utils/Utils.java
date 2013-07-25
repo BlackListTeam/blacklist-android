@@ -3,6 +3,7 @@ package cat.andreurm.blacklist.utils;
 import android.content.SharedPreferences;
 
 import android.app.Activity;
+import android.util.Log;
 
 import java.util.Date;
 

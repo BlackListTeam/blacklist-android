@@ -8,22 +8,19 @@ import android.view.Menu;
 import android.widget.TextView;
 
 import cat.andreurm.blacklist.R;
-
-public class InterfaceExample extends Activity {
+/**
+ * Created by air on 24/07/13.
+ */
+public class LoginActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.promoter);
+        setContentView(R.layout.activity_login);
 
-        //PROMOTER
-        TextView txt = (TextView) findViewById(R.id.textView);
+
+
         Typeface font = Typeface.createFromAsset(getAssets(), getString(R.string.bebas_neue));
-        txt.setTypeface(font);
-        txt.setPaintFlags(txt.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);
-
-        //ACTIVITY MAIN
-        /*Typeface font = Typeface.createFromAsset(getAssets(), getString(R.string.bebas_neue));
 
         TextView txt = (TextView) findViewById(R.id.editText);
         txt.setTypeface(font);
@@ -31,7 +28,7 @@ public class InterfaceExample extends Activity {
 
         TextView txt2 = (TextView) findViewById(R.id.editText2);
         txt2.setTypeface(font);
-        txt2.setPaintFlags(txt2.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);*/
+        txt2.setPaintFlags(txt2.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);
     }
 
 
@@ -41,5 +38,5 @@ public class InterfaceExample extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    
+
 }
