@@ -70,6 +70,7 @@ public class EventsIntroActivity extends TabActivity {
         code.setContent(videosIntent);
 
         TabHost.TabSpec invite = tabHost.newTabSpec("Invite");
+
         invite.setIndicator("Invite", getResources().getDrawable(R.drawable.icon_invite_tab));
         Intent codeIntent = new Intent(this, InviteActivity.class);
         invite.setContent(codeIntent);

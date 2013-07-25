@@ -9,16 +9,26 @@
     tools:context=".MainActivity"
     android:focusable="true"
     android:background="@drawable/bkg">
-
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/relativeLayoutContent">
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageView"
             android:src="@drawable/logo"
-            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/logo"/>
-
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="26dp"
+                android:layout_below="@+id/imageView"
+                android:id="@+id/relativeLayoutForm">
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,8 +38,7 @@
             android:background="@drawable/input"
             android:textColor="#ffffff"
             android:gravity="center"
-            android:layout_marginTop="26dp"
-            android:layout_below="@+id/imageView"
+
             android:layout_alignLeft="@+id/editText2"
             android:layout_alignRight="@+id/editText2"
             android:cursorVisible="false"/>
@@ -61,4 +70,40 @@
             android:layout_below="@+id/editText2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="12dp"/>
+</RelativeLayout>
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="26dp"
+                android:layout_below="@+id/relativeLayoutForm"
+                android:id="@+id/relativeLayout">
+
+            <ImageButton
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/buttonSolicitar"
+                    android:background="@drawable/button_solicitar"
+                    android:layout_alignParentEnd="false"
+                    android:layout_alignParentStart="false"
+                    android:layout_marginTop="12dp"/>
+            <ImageButton
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/button"
+                    android:background="@drawable/button_problemas"
+                    android:layout_toRightOf="@+id/buttonSolicitar"
+                    android:layout_alignParentEnd="false"
+                    android:layout_alignParentStart="false"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="10dp"/>
+
+            </RelativeLayout>
+
+</RelativeLayout>
+
 </RelativeLayout>
