@@ -24,26 +24,29 @@
             </intent-filter>
         </activity>
 
-        <uses-permission android:name="android.permission.INTERNET" />
-
-        <!--
         <activity
-            android:name=".activities.RegisterActivity"
-            android:label="@string/title_activity_register">
+                android:name=".activities.RegisterActivity"
+                android:label="@string/title_activity_register_ok"
+                android:windowSoftInputMode="stateHidden|adjustPan" >
         </activity>
+        <activity
+                android:name=".activities.LoginActivity"
+                android:label="@string/title_activity_register_ok"
+                android:windowSoftInputMode="stateHidden|adjustPan" >
+        </activity>
+
+
         <activity
                 android:name=".activities.RegisterOkActivity"
                 android:label="@string/title_activity_register_ok"
                 android:windowSoftInputMode="stateHidden|adjustPan" >
-            android:name=".activities.RegisterOkActivity"
-            android:label="@string/title_activity_register_ok" >
         </activity>
 
         <activity
             android:name="cat.andreurm.blacklist.activities.EventsIntroActivity"
             android:label="@string/title_activity_events_intro" >
         </activity>
-        -->
+
         <activity
             android:name="cat.andreurm.blacklist.activities.EventsActivity"
             android:label="@string/title_activity_events" >
@@ -64,16 +67,7 @@
             android:name="cat.andreurm.blacklist.EventInfoActivity"
             android:label="@string/title_activity_event_info" >
         </activity>
-        <activity
-                android:name=".activities.RegisterActivity"
-                android:label="@string/title_activity_register_ok"
-                android:windowSoftInputMode="stateHidden|adjustPan" >
-        </activity>
-        <activity
-                android:name=".activities.LoginActivity"
-                android:label="@string/title_activity_register_ok"
-                android:windowSoftInputMode="stateHidden|adjustPan" >
-        </activity>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

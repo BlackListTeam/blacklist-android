@@ -79,5 +79,9 @@ public class PromoterCodeActivity extends Activity implements WebServiceCaller {
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+    }
+
 
 }

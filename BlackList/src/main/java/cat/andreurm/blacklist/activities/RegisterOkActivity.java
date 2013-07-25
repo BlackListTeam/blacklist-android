@@ -42,5 +42,9 @@ public class RegisterOkActivity extends Activity {
         getMenuInflater().inflate(R.menu.register_ok, menu);
         return true;
     }
+
+    @Override
+    public void onBackPressed() {
+    }
     
 }

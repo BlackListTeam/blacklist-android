@@ -79,7 +79,8 @@
                 android:layout_below="@+id/promoWrapper"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:onClick="validateCode"/>
+                android:onClick="validateCode"
+                android:contentDescription="@string/ok"/>
 
     </RelativeLayout>
 

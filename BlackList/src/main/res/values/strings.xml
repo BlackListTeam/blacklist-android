@@ -30,5 +30,10 @@
     <string name="title_activity_code">CodeActivity</string>
     <string name="proximo_evento">PRÓXIMO EVENTO</string>
     <string name="title_activity_event_info">EventInfoActivity</string>
+    <string name="ok">Ok</string>
+    <string name="name_and_surnames">Nombre y apellidos</string>
+    <string name="email">E-mail</string>
+    <string name="birth_year">Año de nacimiento</string>
+    <string name="go_login">Go login</string>
 
 </resources>
