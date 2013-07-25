@@ -17,5 +17,16 @@
     <string name="password">contraseña</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_register_ok">RegisterOkActivity</string>
+    <string name="title_activity_events_intro">EventsIntroActivity</string>
+    <string name="title_activity_events_info">EventsInfoActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="title_activity_events">EventsActivity</string>
+    <string name="title_activity_messages">MessagesActivity</string>
+    <string name="title_activity_invite">InviteActivity</string>
+    <string name="title_activity_code">CodeActivity</string>
+    <string name="proximo_evento">PRÓXIMO EVENTO</string>
+    <string name="title_activity_event_info">EventInfoActivity</string>
 
 </resources>
