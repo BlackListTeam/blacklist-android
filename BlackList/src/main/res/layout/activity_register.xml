@@ -54,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#ffffff"
-                    android:id="@+id/promoInput"
+                    android:id="@+id/register_name"
                     android:background="@drawable/promo_input"
                     android:gravity="center"
                     android:layout_alignParentTop="true"
@@ -68,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#ffffff"
-                android:id="@+id/promoInput"
+                android:id="@+id/register_email"
                 android:background="@drawable/promo_input"
                 android:gravity="center"
                 android:layout_alignParentTop="true"
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#ffffff"
-                android:id="@+id/promoInput"
+                android:id="@+id/register_birth_year"
                 android:background="@drawable/promo_input"
                 android:gravity="center"
                 android:layout_alignParentTop="true"
@@ -99,26 +99,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="fitCenter"
-            android:id="@+id/button"
+            android:id="@+id/register_ok"
             android:background="@drawable/button_ok"
             android:layout_alignParentEnd="false"
             android:layout_alignParentStart="false"
             android:layout_below="@+id/promoWrapper"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="12dp"
+            android:onClick="addUser"/>
 
         <ImageButton
                 style="?android:attr/buttonStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="fitCenter"
-                android:id="@+id/button"
+                android:id="@+id/register_go_login"
                 android:background="@drawable/button_acceso"
                 android:layout_alignParentEnd="false"
                 android:layout_alignParentStart="false"
                 android:layout_below="@+id/promoWrapper"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="100dp"/>
+                android:layout_marginTop="100dp"
+                android:onClick="goToLogin"/>
 
 </RelativeLayout>
 

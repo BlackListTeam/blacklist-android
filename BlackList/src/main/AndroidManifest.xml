@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cat.andreurm.blacklist"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="cat.andreurm.blacklist"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -14,12 +15,11 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         <activity
-            android:name="cat.andreurm.blacklist.activities.EventsIntroActivity"
+            android:name=".activities.PromoterCodeActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="stateHidden|adjustPan" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -32,6 +32,9 @@
             android:label="@string/title_activity_register">
         </activity>
         <activity
+                android:name=".activities.RegisterOkActivity"
+                android:label="@string/title_activity_register_ok"
+                android:windowSoftInputMode="stateHidden|adjustPan" >
             android:name=".activities.RegisterOkActivity"
             android:label="@string/title_activity_register_ok" >
         </activity>
@@ -61,10 +64,21 @@
             android:name="cat.andreurm.blacklist.EventInfoActivity"
             android:label="@string/title_activity_event_info" >
         </activity>
+        <activity
+                android:name=".activities.RegisterActivity"
+                android:label="@string/title_activity_register_ok"
+                android:windowSoftInputMode="stateHidden|adjustPan" >
+        </activity>
+        <activity
+                android:name=".activities.LoginActivity"
+                android:label="@string/title_activity_register_ok"
+                android:windowSoftInputMode="stateHidden|adjustPan" >
+        </activity>
     </application>
 
-    <compatible-screens>
+    <uses-permission android:name="android.permission.INTERNET" />
 
+    <compatible-screens>
         <!-- all small size screens -->
         <screen
             android:screenDensity="ldpi"

@@ -85,7 +85,7 @@ public class WebService {
                 Hashtable<String,Object> ret= new Hashtable<String,Object>();
                 ret.put("authError",true);
                 ret.put("errorMessage","Error al conectar con los servidores");
-                Log.d("parseJSon", "Failed to download file");
+                Log.d("AND-parseJSon", "Failed to download file");
                 ((WebServiceCaller) pare).webServiceReady(ret);
             }
 
@@ -95,7 +95,7 @@ public class WebService {
             ret.put("errorMessage","Error al conectar con los servidores");
             ((WebServiceCaller) pare).webServiceReady(ret);
 
-            Log.d("parseJSon", e.getLocalizedMessage());
+            Log.d("AND-parseJSon", e.getLocalizedMessage());
         }
         return stringBuilder.toString();
     }
@@ -132,7 +132,7 @@ public class WebService {
             Hashtable<String,Object> ret= new Hashtable<String,Object>();
             try {
                 JSONObject jsonObject = new JSONObject(result);
-                Log.d("callValidatePromoterCode",jsonObject.toString());
+                Log.d("AND-callValidatePromoterCode",jsonObject.toString());
 
                 ret.put("authError",false);
                 ret.put("errorMessage","");
@@ -169,11 +169,11 @@ public class WebService {
             Hashtable<String,Object> ret= new Hashtable<String,Object>();
             try {
                 JSONObject jsonObject = new JSONObject(result);
-                Log.d("callAddUser",jsonObject.toString());
+                Log.d("AND-callAddUser",jsonObject.toString());
 
                 ret.put("authError",false);
                 ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
-                ret.put("valid",(jsonObject.getJSONObject("response").getInt("added") !=0));
+                ret.put("added",(jsonObject.getJSONObject("response").getInt("added") !=0));
                 ((WebServiceCaller) pare).webServiceReady(ret);
 
             } catch (Exception e) {
@@ -217,7 +217,7 @@ public class WebService {
             Hashtable<String,Object> ret= new Hashtable<String,Object>();
             try {
                 JSONObject jsonObject = new JSONObject(result);
-                Log.d("callLogin",jsonObject.toString());
+                Log.d("AND-callLogin",jsonObject.toString());
 
                 ret.put("authError",false);
                 ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
@@ -266,7 +266,7 @@ public class WebService {
             Hashtable<String,Object> ret= new Hashtable<String,Object>();
             try {
                 JSONObject jsonObject = new JSONObject(result);
-                Log.d("callGetPartyCovers",jsonObject.toString());
+                Log.d("AND-callGetPartyCovers",jsonObject.toString());
 
                 ArrayList<Party> parties=new ArrayList<Party>();
 
@@ -278,7 +278,7 @@ public class WebService {
                     p.cover=p_aux.getString("cover");
                     parties.add(p);
                 }
-                Log.d("parties",parties.get(0).cover.toString());
+                Log.d("AND-parties",parties.get(0).cover.toString());
 
                 ret.put("authError",jsonObject.getJSONObject("response").getInt("authError") !=0);
                 ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
