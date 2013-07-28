@@ -1,11 +1,13 @@
 package cat.andreurm.blacklist.activities;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import cat.andreurm.blacklist.R;
 
@@ -35,12 +37,25 @@ public class RegisterOkActivity extends Activity {
         txtPasadosMinutos.setPaintFlags(txtPasadosMinutos.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);
     }
 
-
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.register_ok, menu);
-        return true;
+    public void onBackPressed() {
+    }
+
+    public void goToLogin(View view){
+        startActivity(new Intent(this,LoginActivity.class));
+    }
+
+    public void contact(View view){
+        Intent i = new Intent(Intent.ACTION_SEND);
+        i.setType(getString(R.string.email_mime_type));
+        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{getString(R.string.email_to)});
+        i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.contact));
+        i.putExtra(Intent.EXTRA_TEXT   , getString(R.string.empty_string));
+        try {
+            startActivity(Intent.createChooser(i, getString(R.string.email_chooser_title)));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(RegisterOkActivity.this, getString(R.string.no_email_error), Toast.LENGTH_SHORT).show();
+        }
     }
     
 }

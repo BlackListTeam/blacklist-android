@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bkg"
-    android:focusableInTouchMode="false">
+    android:focusableInTouchMode="true">
 
 
     <RelativeLayout
@@ -53,44 +53,54 @@
             <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#ffffff"
+                    android:textColor="#999999"
                     android:id="@+id/register_name"
                     android:background="@drawable/promo_input"
                     android:gravity="center"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="60dp"
-                    android:inputType="text"
+                    android:inputType="text|textPersonName"
+                    android:hint="@string/name_and_surnames"
                     android:cursorVisible="false"
-                    android:hint="Nombre y apellidos"/>
+                    android:imeOptions="actionDone"
+                    android:ellipsize="end"
+                    android:textIsSelectable="false"
+                    android:textSize="14sp"/>
 
         <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#ffffff"
+                android:textColor="#999999"
                 android:id="@+id/register_email"
                 android:background="@drawable/promo_input"
                 android:gravity="center"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="100dp"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:cursorVisible="false"
-                android:hint="E-mail"/>
+                android:hint="@string/email"
+                android:imeOptions="actionDone"
+                android:ellipsize="end"
+                android:textSize="14sp"/>
 
         <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#ffffff"
+                android:textColor="#999999"
                 android:id="@+id/register_birth_year"
                 android:background="@drawable/promo_input"
                 android:gravity="center"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="144dp"
-                android:inputType="text"
                 android:cursorVisible="false"
-                android:hint="Año de nacimiento"/>
+                android:hint="@string/birth_year"
+                android:imeOptions="actionDone"
+                android:ellipsize="end"
+                android:textSize="14sp"
+                android:inputType="number"/>
 
     </RelativeLayout>
 
@@ -106,7 +116,8 @@
             android:layout_below="@+id/promoWrapper"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="12dp"
-            android:onClick="addUser"/>
+            android:onClick="addUser"
+            android:contentDescription="@string/ok"/>
 
         <ImageButton
                 style="?android:attr/buttonStyleSmall"
@@ -120,7 +131,8 @@
                 android:layout_below="@+id/promoWrapper"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="100dp"
-                android:onClick="goToLogin"/>
+                android:onClick="goToLogin"
+                android:contentDescription="@string/go_login"/>
 
 </RelativeLayout>
 
