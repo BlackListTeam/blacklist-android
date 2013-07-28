@@ -30,5 +30,26 @@
     <string name="title_activity_code">CodeActivity</string>
     <string name="proximo_evento">PRÓXIMO EVENTO</string>
     <string name="title_activity_event_info">EventInfoActivity</string>
+    <string name="title_activity_list_messages">ListMessagesActivity</string>
+    <string name="title_activity_write_message">WriteMessageActivity</string>
+    <string name="tab_group_activity">TabGroupActivity</string>
+    <string name="invitacionesProximaFiesta">INVITACIONES PARA PRÓXIMA FIESTA</string>
+    <string name="invitarOtrasPersonas">SI QUIERES, PUEDES INVITAR A OTRAS PERSONAS A ASISTIR AL PRÓXIMO EVENTO BLACKLIST</string>
+    <string name="introduceMails">INTRODUCE UNO POR UNO LOS MAILS DONDEQUIERES QUE SE MANDE TU CÓDIGO DE INVITADOS</string>
+    <string name="reservaRealizadaEvento">RESERVA REALIZADA PARA ESTE EVENTO</string>
+    <string name="codigoAutorizacion">CÓDIGO DE AUTORIZACIÓN DE ENTRADA</string>
+    <string name="mensajes">MENSAJES</string>
+    <string name="escribirMensaje">ESCRIBIR MENSAJE</string>
+    <string name="title_activity_message_info">MessageInfoActivity</string>
+    <string name="mensaje">MENSAJE</string>
+    <string name="title_activity_events_tab_group">EventsTabGroupActivity</string>
+    <string name="title_activity_events_sitio">EventsSitioActivity</string>
+    <string name="title_activity_events_precio">EventsPrecioActivity</string>
+    <string name="title_activity_reservation">ReservationActivity</string>
+    <string name="acompanantes">ACOMPAÑANTES</string>
+    <string name="vip">ESPACIO VIP EN CABINA</string>
+    <string name="habitaciones">HABITACIONES</string>
+    <string name="contactoEspecial"><u>CONTACTO PARA RESERVA ESPECIAL</u></string>
+    <string name="title_activity_pictures_gallery">PicturesGalleryActivity</string>
 
 </resources>

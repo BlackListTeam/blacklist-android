@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bkg"
+                android:focusableInTouchMode="false">
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/relativeLayoutGeneral">
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/imageView"
+                android:background="@drawable/black_box_background"
+                android:id="@+id/relativeLayoutBackGround"
+                android:layout_marginTop="-20dp">
+
+
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/relativeLayoutContent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="25dp">
+
+                <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/textViewImageEvent"
+                        android:layout_below="@+id/textViewPartyName"
+                        android:contentDescription="potadaEvent"/>
+
+
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView"
+                android:background="@drawable/box_titol_event"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/logo">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre de la Fiesta"
+                    android:id="@+id/textViewTituloEvent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp"
+                    android:textIsSelectable="false"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

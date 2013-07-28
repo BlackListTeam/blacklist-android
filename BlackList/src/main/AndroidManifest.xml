@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          package="cat.andreurm.blacklist"
+    package="cat.andreurm.blacklist"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -15,11 +14,12 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
         <activity
-            android:name=".activities.PromoterCodeActivity"
+            android:name="cat.andreurm.blacklist.activities.TabHostActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="stateHidden|adjustPan" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -40,17 +40,12 @@
         </activity>
 
         <activity
-            android:name="cat.andreurm.blacklist.activities.EventsIntroActivity"
-            android:label="@string/title_activity_events_intro" >
+            android:name="cat.andreurm.blacklist.activities.TabHostActivity          android:label="@string/title_activity_events_intro" >
         </activity>
         -->
         <activity
             android:name="cat.andreurm.blacklist.activities.EventsActivity"
             android:label="@string/title_activity_events" >
-        </activity>
-        <activity
-            android:name="cat.andreurm.blacklist.activities.MessagesActivity"
-            android:label="@string/title_activity_messages" >
         </activity>
         <activity
             android:name="cat.andreurm.blacklist.activities.InviteActivity"
@@ -61,24 +56,65 @@
             android:label="@string/title_activity_code" >
         </activity>
         <activity
-            android:name="cat.andreurm.blacklist.EventInfoActivity"
+            android:name="cat.andreurm.blacklist.activities.EventInfoActivity"
             android:label="@string/title_activity_event_info" >
         </activity>
         <activity
-                android:name=".activities.RegisterActivity"
-                android:label="@string/title_activity_register_ok"
-                android:windowSoftInputMode="stateHidden|adjustPan" >
+            android:name="cat.andreurm.blacklist.activities.RegisterActivity"
+            android:label="@string/title_activity_register_ok"
+            android:windowSoftInputMode="stateHidden|adjustPan" >
         </activity>
         <activity
-                android:name=".activities.LoginActivity"
-                android:label="@string/title_activity_register_ok"
-                android:windowSoftInputMode="stateHidden|adjustPan" >
+            android:name="cat.andreurm.blacklist.activities.LoginActivity"
+            android:label="@string/title_activity_register_ok"
+            android:windowSoftInputMode="stateHidden|adjustPan" >
+        </activity>
+        <activity
+            android:name="cat.andreurm.blacklist.activities.WriteMessageActivity"
+            android:label="@string/title_activity_write_message" >
+        </activity>
+        <activity
+            android:name="cat.andreurm.blacklist.activities.TabGroupActivity"
+            android:label="@string/tab_group_activity" >
+        </activity>
+        <activity
+            android:name="cat.andreurm.blacklist.activities.ListMessagesActivity"
+            android:label="@string/tab_group_activity" >
+        </activity>
+        <activity
+            android:name="cat.andreurm.blacklist.activities.ListMessagesTabGroupActivity"
+            android:label="@string/tab_group_activity" >
+        </activity>
+        <activity
+            android:name="cat.andreurm.blacklist.activities.MessageInfoActivity"
+            android:label="@string/title_activity_message_info" >
+        </activity>
+        <activity
+            android:name="cat.andreurm.blacklist.activities.EventsTabGroupActivity"
+            android:label="@string/title_activity_events_tab_group" >
+        </activity>
+        <activity
+            android:name="cat.andreurm.blacklist.activities.EventsSitioActivity"
+            android:label="@string/title_activity_events_sitio" >
+        </activity>
+        <activity
+            android:name="cat.andreurm.blacklist.activities.EventsPrecioActivity"
+            android:label="@string/title_activity_events_precio" >
+        </activity>
+        <activity
+            android:name="cat.andreurm.blacklist.activities.ReservationActivity"
+            android:label="@string/title_activity_reservation" >
+        </activity>
+        <activity
+            android:name=".activities.PicturesGalleryActivity"
+            android:label="@string/title_activity_pictures_gallery" >
         </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <compatible-screens>
+
         <!-- all small size screens -->
         <screen
             android:screenDensity="ldpi"

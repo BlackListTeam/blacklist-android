@@ -2,24 +2,16 @@ package cat.andreurm.blacklist.activities;
 
 import java.util.Locale;
 
-import android.annotation.TargetApi;
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TabHost;
@@ -27,7 +19,7 @@ import android.widget.TextView;
 
 import cat.andreurm.blacklist.R;
 
-public class EventsIntroActivity extends TabActivity {
+public class TabHostActivity extends TabActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -50,28 +42,25 @@ public class EventsIntroActivity extends TabActivity {
         setContentView(R.layout.activity_events_intro);
 
         TabHost tabHost = getTabHost();
-        //tabHost.getTabWidget().getChildAt(0).setBackgroundColor(Color.BLACK);
-
-
 
         TabHost.TabSpec events = tabHost.newTabSpec("Events");
-        events.setIndicator("Events", getResources().getDrawable(R.drawable.icon_events_tab));
-        Intent photosIntent = new Intent(this, EventsActivity.class);
+        events.setIndicator("", getResources().getDrawable(R.drawable.icon_events_tab));
+        Intent photosIntent = new Intent(this, EventsTabGroupActivity.class);
         events.setContent(photosIntent);
 
         TabHost.TabSpec messages = tabHost.newTabSpec("Messages");
-        messages.setIndicator("Messages", getResources().getDrawable(R.drawable.icon_messages_tab));
-        Intent songsIntent = new Intent(this, MessagesActivity.class);
+        messages.setIndicator("", getResources().getDrawable(R.drawable.icon_messages_tab));
+        Intent songsIntent = new Intent(this, ListMessagesTabGroupActivity.class);
         messages.setContent(songsIntent);
 
         TabHost.TabSpec code = tabHost.newTabSpec("Code");
-        code.setIndicator("Code", getResources().getDrawable(R.drawable.icon_code_tab));
+        code.setIndicator("", getResources().getDrawable(R.drawable.icon_code_tab));
         Intent videosIntent = new Intent(this, CodeActivity.class);
         code.setContent(videosIntent);
 
         TabHost.TabSpec invite = tabHost.newTabSpec("Invite");
 
-        invite.setIndicator("Invite", getResources().getDrawable(R.drawable.icon_invite_tab));
+        invite.setIndicator("", getResources().getDrawable(R.drawable.icon_invite_tab));
         Intent codeIntent = new Intent(this, InviteActivity.class);
         invite.setContent(codeIntent);
 
@@ -79,6 +68,10 @@ public class EventsIntroActivity extends TabActivity {
         tabHost.addTab(messages);
         tabHost.addTab(code);
         tabHost.addTab(invite);
+
+        for(int i = 0; i<tabHost.getTabWidget().getChildCount();i++){
+            tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.BLACK);
+        }
     }
 
     @Override
@@ -87,21 +80,6 @@ public class EventsIntroActivity extends TabActivity {
         getMenuInflater().inflate(R.menu.events_intro, menu);
         return true;
     }
-    
-    /*@Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-        // When the given tab is selected, switch to the corresponding page in
-        // the ViewPager.
-        mViewPager.setCurrentItem(tab.getPosition());
-    }
-
-    @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-    }
-
-    @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
-    }*/
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to

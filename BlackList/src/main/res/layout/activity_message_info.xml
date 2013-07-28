@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bkg"
+                android:focusableInTouchMode="false">
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/relativeLayoutGeneral">
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/imageViewTituloMensajes"
+                android:background="@drawable/black_box_background"
+                android:id="@+id/relativeLayoutBackGround"
+                android:layout_marginTop="-20dp">
+
+
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/relativeLayoutContent">
+
+                <ImageButton
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:id="@+id/buttonVolver"
+                        android:background="@drawable/button_volver"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="20dp"
+                        />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageViewTituloMensajes"
+                android:background="@drawable/box_titol_event"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/logo">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mensaje"
+                    android:id="@+id/textViewTituloMensaje"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="#ffffff"
+                    android:textSize="13dp"
+                    android:textIsSelectable="false"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

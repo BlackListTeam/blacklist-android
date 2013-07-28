@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bkg"
+                android:focusableInTouchMode="false">
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/relativeLayoutGeneral">
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/imageView"
+                android:background="@drawable/black_box_background"
+                android:id="@+id/relativeLayoutBackGround"
+                android:layout_marginTop="-20dp">
+
+
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/relativeLayoutContent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="25dp">
+
+                <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/textViewImageEvent"
+                        android:layout_below="@+id/textViewPartyName"
+                        android:contentDescription="potadaEvent"/>
+
+                <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/relativeLayoutReservation"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/textViewImageEvent"
+                        android:background="@drawable/datos_reserva"
+                        android:layout_marginTop="10dp">
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/linearLayoutAcompanantes"
+                            android:layout_marginLeft="11dp"
+                            android:layout_marginTop="50dp">
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="@string/acompanantes"
+                                android:id="@+id/textViewAcompanantes"
+                                android:layout_alignParentLeft="true"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/linearLayoutVip"
+                            android:layout_below="@+id/linearLayoutAcompanantes"
+                            android:layout_marginLeft="11dp"
+                            android:layout_marginTop="20dp">
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="@string/vip"
+                                android:id="@+id/textViewVip"
+                                android:layout_marginRight="20dp"
+                                android:layout_alignParentLeft="true"/>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/linearLayoutHabitaciones"
+                            android:layout_below="@+id/linearLayoutVip"
+                            android:layout_marginLeft="11dp"
+                            android:layout_marginTop="20dp">
+                        <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="@string/habitaciones"
+                                android:id="@+id/textViewHabitaciones"
+                                android:layout_alignParentLeft="true"/>
+
+                    </LinearLayout>
+
+                    <Button
+                            style="?android:attr/buttonStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scaleType="fitCenter"
+                            android:id="@+id/buttonContactoEspecial"
+                            android:text="@string/contactoEspecial"
+                            android:layout_below="@+id/linearLayoutHabitaciones"
+                            android:background="@android:color/transparent"
+                            android:textColor="#ffffff"
+                            android:layout_alignParentLeft="true"
+                            android:contentDescription="buttonReservar"
+                            android:layout_marginLeft="11dp"
+                            android:layout_marginTop="15dp"/>
+
+                    <ImageButton
+                            style="?android:attr/buttonStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scaleType="fitCenter"
+                            android:id="@+id/buttonReservar"
+                            android:background="@drawable/button_ok_gris"
+                            android:layout_below="@+id/linearLayoutHabitaciones"
+                            android:layout_alignParentRight="true"
+                            android:contentDescription="buttonReservar"
+                            android:layout_marginRight="20dp"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView"
+                android:background="@drawable/box_titol_event"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/logo">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre de la Fiesta"
+                    android:id="@+id/textViewTituloEvent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp"
+                    android:textIsSelectable="false"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

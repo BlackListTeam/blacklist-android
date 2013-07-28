@@ -1,15 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    <!-- Screen Design for Photos -->
-    <TextView android:text="INVITE"
-              android:padding="15dip"
-              android:textSize="18dip"
-              android:layout_width="fill_parent"
-              android:layout_height="wrap_content"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bkg"
+                android:focusableInTouchMode="false">
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/relativeLayoutGeneral">
 
-</LinearLayout>
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/imageViewBoxTitol"
+            android:background="@drawable/black_box_background"
+            android:id="@+id/relativeLayoutBackGround"
+            android:layout_marginTop="-20dp">
+
+
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/relativeLayoutContent"
+                    android:layout_centerHorizontal="true">
+
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/invitarOtrasPersonas"
+                        android:id="@+id/textViewInvitarOtrasPersonas"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:textColor="#00ccb6"
+                        android:layout_marginTop="12dp"
+                        android:textSize="14sp"
+                        android:textIsSelectable="false"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/introduceMails"
+                        android:gravity="center"
+                        android:id="@+id/textViewIntroduceMails"
+                        android:layout_below="@+id/textViewInvitarOtrasPersonas"
+                        android:layout_centerHorizontal="true"
+                        android:textColor="#ffffff"
+                        android:layout_marginTop="20dp"
+                        android:textSize="16sp"
+                        android:textIsSelectable="false"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"/>
+
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textViewIntroduceMails"
+                        android:textColor="#ffffff"
+                        android:id="@+id/inputInvite"
+                        android:background="@drawable/input_full_width"
+                        android:gravity="center"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:inputType="text"
+                        android:cursorVisible="false"/>
+                <ImageButton
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        android:id="@+id/button"
+                        android:background="@drawable/button_ok"
+                        android:layout_alignParentEnd="false"
+                        android:layout_alignParentStart="false"
+                        android:layout_below="@+id/inputInvite"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        />
+            </RelativeLayout>
+
+    </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageViewBoxTitol"
+                android:background="@drawable/box_titol_event"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/logo">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/invitacionesProximaFiesta"
+                android:id="@+id/textViewInvitacionesProximaFiesta"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:textColor="#ffffff"
+                android:textSize="12dp"
+                android:textIsSelectable="false"/>
+            </RelativeLayout>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
