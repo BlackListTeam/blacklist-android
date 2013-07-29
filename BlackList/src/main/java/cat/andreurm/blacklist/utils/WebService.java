@@ -29,6 +29,7 @@ import java.util.List;
 import android.app.Activity;
 
 import cat.andreurm.blacklist.model.Party;
+import cat.andreurm.blacklist.model.Reservation;
 import cat.andreurm.blacklist.model.User;
 
 /**
@@ -236,6 +237,7 @@ public class WebService {
 
 
 
+    //TODO: Fer el parsing
     public void getPartyCovers(String session_id){
         try {
             URI uri = new URI(
@@ -292,4 +294,450 @@ public class WebService {
         }
     }
 
+
+
+    public void getCurrentReservation(String  session_id){
+        try {
+            URI uri = new URI(
+                    WS_PROTOCOL,
+                    WS_HOST,
+                    WS_PATH+"getCurrentReservation",
+                    "session_id="+session_id,
+                    null);
+
+            Object[] call={uri.toASCIIString()};
+            new callGetCurrentReservation().execute(call);
+
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            ret.put("authError",true);
+            ret.put("errorMessage","Error al conectar con los servidores");
+            ((WebServiceCaller) pare).webServiceReady(ret);
+        }
+    }
+
+    private class callGetCurrentReservation extends AsyncTask<Object, Void, String> {
+        protected String doInBackground(Object... urls) {
+            return parseJSON(urls[0].toString());
+        }
+
+        protected void onPostExecute(String result) {
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                Log.d("AND-callGetCurrentReservation",jsonObject.toString());
+
+                ret.put("authError",false);
+                ret.put("errorMessage","");
+
+                //TODO:Fer el parsing
+
+                ((WebServiceCaller) pare).webServiceReady(ret);
+
+            } catch (Exception e) {
+                ret.put("authError",true);
+                ret.put("errorMessage","Error al conectar con los servidores");
+                ((WebServiceCaller) pare).webServiceReady(ret);
+            }
+        }
+    }
+
+
+
+    public void makeReservation(Reservation r,String session_id){
+        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(4);
+        nameValuePairs.add(new BasicNameValuePair("escorts", Integer.toString(r.escorts)));
+        nameValuePairs.add(new BasicNameValuePair("vip", Integer.toString(r.vip)));
+        nameValuePairs.add(new BasicNameValuePair("rooms", Integer.toString(r.rooms)));
+        nameValuePairs.add(new BasicNameValuePair("session_id", session_id));
+
+        Object[] call={WS_URL+"makeReservation",nameValuePairs};
+        new callMakeReservation().execute(call);
+    }
+
+    private class callMakeReservation extends AsyncTask<Object, Void, String> {
+        protected String doInBackground(Object... urls) {
+            return parseJSON(urls[0].toString(),(List<NameValuePair>)urls[1]);
+        }
+
+        protected void onPostExecute(String result) {
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                Log.d("AND-callMakeReservation",jsonObject.toString());
+
+                ret.put("authError",false);
+                ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
+
+                //TODO: fer El parsing
+
+                ((WebServiceCaller) pare).webServiceReady(ret);
+
+            } catch (Exception e) {
+                ret.put("authError",true);
+                ret.put("errorMessage","Error al conectar con los servidores");
+                ((WebServiceCaller) pare).webServiceReady(ret);
+            }
+        }
+    }
+
+
+
+    public void deleteReservation(String  session_id){
+        try {
+            URI uri = new URI(
+                    WS_PROTOCOL,
+                    WS_HOST,
+                    WS_PATH+"deleteReservation",
+                    "session_id="+session_id,
+                    null);
+
+            Object[] call={uri.toASCIIString()};
+            new callDeleteReservation().execute(call);
+
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            ret.put("authError",true);
+            ret.put("errorMessage","Error al conectar con los servidores");
+            ((WebServiceCaller) pare).webServiceReady(ret);
+        }
+    }
+
+    private class callDeleteReservation extends AsyncTask<Object, Void, String> {
+        protected String doInBackground(Object... urls) {
+            return parseJSON(urls[0].toString());
+        }
+
+        protected void onPostExecute(String result) {
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                Log.d("AND-callDeleteReservation",jsonObject.toString());
+
+                ret.put("authError",false);
+                ret.put("errorMessage","");
+
+                //TODO:Fer el parsing
+
+                ((WebServiceCaller) pare).webServiceReady(ret);
+
+            } catch (Exception e) {
+                ret.put("authError",true);
+                ret.put("errorMessage","Error al conectar con los servidores");
+                ((WebServiceCaller) pare).webServiceReady(ret);
+            }
+        }
+    }
+
+
+
+    public void getMessages(String  session_id){
+        try {
+            URI uri = new URI(
+                    WS_PROTOCOL,
+                    WS_HOST,
+                    WS_PATH+"getMessages",
+                    "session_id="+session_id,
+                    null);
+
+            Object[] call={uri.toASCIIString()};
+            new callGetMessages().execute(call);
+
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            ret.put("authError",true);
+            ret.put("errorMessage","Error al conectar con los servidores");
+            ((WebServiceCaller) pare).webServiceReady(ret);
+        }
+    }
+
+    private class callGetMessages extends AsyncTask<Object, Void, String> {
+        protected String doInBackground(Object... urls) {
+            return parseJSON(urls[0].toString());
+        }
+
+        protected void onPostExecute(String result) {
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                Log.d("AND-callGetMessages",jsonObject.toString());
+
+                ret.put("authError",false);
+                ret.put("errorMessage","");
+
+                //TODO:Fer el parsing
+
+                ((WebServiceCaller) pare).webServiceReady(ret);
+
+            } catch (Exception e) {
+                ret.put("authError",true);
+                ret.put("errorMessage","Error al conectar con los servidores");
+                ((WebServiceCaller) pare).webServiceReady(ret);
+            }
+        }
+    }
+
+
+
+    public void replyMessage(String message, int message_stream_id, String session_id){
+        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(3);
+        nameValuePairs.add(new BasicNameValuePair("message", message));
+        nameValuePairs.add(new BasicNameValuePair("message_stream_id", Integer.toString(message_stream_id)));
+        nameValuePairs.add(new BasicNameValuePair("session_id", session_id));
+
+        Object[] call={WS_URL+"replyMessage",nameValuePairs};
+        new callReplyMessage().execute(call);
+    }
+
+    private class callReplyMessage extends AsyncTask<Object, Void, String> {
+        protected String doInBackground(Object... urls) {
+            return parseJSON(urls[0].toString(),(List<NameValuePair>)urls[1]);
+        }
+
+        protected void onPostExecute(String result) {
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                Log.d("AND-callReplyMessage",jsonObject.toString());
+
+                ret.put("authError",false);
+                ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
+
+                //TODO: fer El parsing
+
+                ((WebServiceCaller) pare).webServiceReady(ret);
+
+            } catch (Exception e) {
+                ret.put("authError",true);
+                ret.put("errorMessage","Error al conectar con los servidores");
+                ((WebServiceCaller) pare).webServiceReady(ret);
+            }
+        }
+    }
+
+
+
+    public void addMessage(String message, String session_id){
+        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+        nameValuePairs.add(new BasicNameValuePair("message", message));
+        nameValuePairs.add(new BasicNameValuePair("session_id", session_id));
+
+        Object[] call={WS_URL+"addMessage",nameValuePairs};
+        new callAddMessage().execute(call);
+    }
+
+    private class callAddMessage extends AsyncTask<Object, Void, String> {
+        protected String doInBackground(Object... urls) {
+            return parseJSON(urls[0].toString(),(List<NameValuePair>)urls[1]);
+        }
+
+        protected void onPostExecute(String result) {
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                Log.d("AND-callAddMessage",jsonObject.toString());
+
+                ret.put("authError",false);
+                ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
+
+                //TODO: fer El parsing
+
+                ((WebServiceCaller) pare).webServiceReady(ret);
+
+            } catch (Exception e) {
+                ret.put("authError",true);
+                ret.put("errorMessage","Error al conectar con los servidores");
+                ((WebServiceCaller) pare).webServiceReady(ret);
+            }
+        }
+    }
+
+
+
+    public void deleteMessage(int message_id,String  session_id){
+        try {
+            URI uri = new URI(
+                    WS_PROTOCOL,
+                    WS_HOST,
+                    WS_PATH+"deleteMessage",
+                    "message_stream_id"+message_id+"&session_id="+session_id,
+                    null);
+
+            Object[] call={uri.toASCIIString()};
+            new callDeleteMessage().execute(call);
+
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            ret.put("authError",true);
+            ret.put("errorMessage","Error al conectar con los servidores");
+            ((WebServiceCaller) pare).webServiceReady(ret);
+        }
+    }
+
+    private class callDeleteMessage extends AsyncTask<Object, Void, String> {
+        protected String doInBackground(Object... urls) {
+            return parseJSON(urls[0].toString());
+        }
+
+        protected void onPostExecute(String result) {
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                Log.d("AND-callDeleteMessage",jsonObject.toString());
+
+                ret.put("authError",false);
+                ret.put("errorMessage","");
+
+                //TODO:Fer el parsing
+
+                ((WebServiceCaller) pare).webServiceReady(ret);
+
+            } catch (Exception e) {
+                ret.put("authError",true);
+                ret.put("errorMessage","Error al conectar con los servidores");
+                ((WebServiceCaller) pare).webServiceReady(ret);
+            }
+        }
+    }
+
+
+
+    public void sendInvitation(String email, String session_id){
+        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+        nameValuePairs.add(new BasicNameValuePair("email", email));
+        nameValuePairs.add(new BasicNameValuePair("session_id", session_id));
+
+        Object[] call={WS_URL+"sendInvitation",nameValuePairs};
+        new callSendInvitation().execute(call);
+    }
+
+    private class callSendInvitation extends AsyncTask<Object, Void, String> {
+        protected String doInBackground(Object... urls) {
+            return parseJSON(urls[0].toString(),(List<NameValuePair>)urls[1]);
+        }
+
+        protected void onPostExecute(String result) {
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                Log.d("AND-callSendInvitation",jsonObject.toString());
+
+                ret.put("authError",false);
+                ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
+
+                //TODO: fer El parsing
+
+                ((WebServiceCaller) pare).webServiceReady(ret);
+
+            } catch (Exception e) {
+                ret.put("authError",true);
+                ret.put("errorMessage","Error al conectar con los servidores");
+                ((WebServiceCaller) pare).webServiceReady(ret);
+            }
+        }
+    }
+
+
+
+
+    public void getNewMessages(String  session_id){
+        try {
+            URI uri = new URI(
+                    WS_PROTOCOL,
+                    WS_HOST,
+                    WS_PATH+"getNewMessages",
+                    "session_id="+session_id,
+                    null);
+
+            Object[] call={uri.toASCIIString()};
+            new callGetNewMessages().execute(call);
+
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            ret.put("authError",true);
+            ret.put("errorMessage","Error al conectar con los servidores");
+            ((WebServiceCaller) pare).webServiceReady(ret);
+        }
+    }
+
+    private class callGetNewMessages extends AsyncTask<Object, Void, String> {
+        protected String doInBackground(Object... urls) {
+            return parseJSON(urls[0].toString());
+        }
+
+        protected void onPostExecute(String result) {
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                Log.d("AND-callGetNewMessages",jsonObject.toString());
+
+                ret.put("authError",false);
+                ret.put("errorMessage","");
+
+                //TODO:Fer el parsing
+
+                ((WebServiceCaller) pare).webServiceReady(ret);
+
+            } catch (Exception e) {
+                ret.put("authError",true);
+                ret.put("errorMessage","Error al conectar con los servidores");
+                ((WebServiceCaller) pare).webServiceReady(ret);
+            }
+        }
+    }
+
+
+
+
+    public void readMessages(String  session_id){
+        try {
+            URI uri = new URI(
+                    WS_PROTOCOL,
+                    WS_HOST,
+                    WS_PATH+"readMessages",
+                    "session_id="+session_id,
+                    null);
+
+            Object[] call={uri.toASCIIString()};
+            new callReadMessages().execute(call);
+
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            ret.put("authError",true);
+            ret.put("errorMessage","Error al conectar con los servidores");
+            ((WebServiceCaller) pare).webServiceReady(ret);
+        }
+    }
+
+    private class callReadMessages extends AsyncTask<Object, Void, String> {
+        protected String doInBackground(Object... urls) {
+            return parseJSON(urls[0].toString());
+        }
+
+        protected void onPostExecute(String result) {
+            Hashtable<String,Object> ret= new Hashtable<String,Object>();
+            try {
+                JSONObject jsonObject = new JSONObject(result);
+                Log.d("AND-callReadMessages",jsonObject.toString());
+
+                ret.put("authError",false);
+                ret.put("errorMessage","");
+
+                //TODO:Fer el parsing
+
+                ((WebServiceCaller) pare).webServiceReady(ret);
+
+            } catch (Exception e) {
+                ret.put("authError",true);
+                ret.put("errorMessage","Error al conectar con los servidores");
+                ((WebServiceCaller) pare).webServiceReady(ret);
+            }
+        }
+    }
 }
