@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bkg"
+                android:focusableInTouchMode="false">
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/relativeLayoutGeneral">
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/imageView"
+                android:background="@drawable/black_box_background"
+                android:id="@+id/relativeLayoutBackGround"
+                android:layout_marginTop="-20dp">
+
+
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/relativeLayoutContent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="25dp">
+
+                <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/textViewImageEvent"
+                        android:layout_below="@+id/textViewPartyName"
+                        android:contentDescription="potadaEvent"/>
+
+                <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/relativeLayoutMenu"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/textViewImageEvent"
+                        android:layout_marginTop="10dp">
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                        <Button
+                                android:layout_width="92dp"
+                                android:layout_height="25dp"
+                                android:id="@+id/buttonInfo"
+                                android:layout_alignParentLeft="true"
+                                android:background="@android:color/transparent"/>
+                        <Button
+                                android:layout_width="92dp"
+                                android:layout_height="25dp"
+                                android:id="@+id/buttonSitio"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"
+                                android:background="@android:color/transparent"/>
+                        <Button
+                                android:layout_width="92dp"
+                                android:layout_height="25dp"
+                                android:id="@+id/buttonPrecio"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentLeft="true"
+                                android:background="@android:color/transparent"/>
+                    </LinearLayout>
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/menu_precio"
+                            android:id="@+id/imageViewMenu"
+                            android:contentDescription="menu"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/relativeLayoutContentMenu"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/relativeLayoutMenu"
+                        android:background="@android:color/black"
+                        android:layout_marginTop="10dp">
+                    <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:padding="5dp"
+                            android:background="@android:color/black"
+                            android:textColor="@android:color/white"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:lines="8"
+                            android:text="Small Text"
+                            android:id="@+id/textViewPrecio"
+                            android:gravity="center_horizontal"
+                            android:layout_below="@+id/relativeLayoutMenu"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="21dp"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView"
+                android:background="@drawable/box_titol_event"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/logo">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre de la Fiesta"
+                    android:id="@+id/textViewTituloEvent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="#ffffff"
+                    android:textSize="12dp"
+                    android:textIsSelectable="false"/>
+        </RelativeLayout>
+        <ImageButton
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:id="@+id/buttonReservar"
+                android:background="@drawable/button_reservar"
+                android:layout_below="@+id/relativeLayoutBackGround"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="buttonReservar"
+                android:layout_marginTop="-15dp"/>
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

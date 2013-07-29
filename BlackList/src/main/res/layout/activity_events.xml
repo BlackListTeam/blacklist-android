@@ -15,17 +15,18 @@
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView"
+            android:id="@+id/imageViewBanner"
             android:src="@drawable/logo_events_intro"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:contentDescription="@string/logo"/>
 
+
     <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/contenido"
-            android:layout_below="@id/imageView"
+            android:id="@+id/relativeLayoutBanner"
+            android:layout_below="@id/imageViewBanner"
             android:layout_centerVertical="false"
             android:layout_marginTop="80dp"
             android:layout_centerHorizontal="true">
@@ -43,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/proximo_evento"
-                android:id="@+id/textViewAutoriza"
+                android:id="@+id/textViewTituloEvent"
                 android:textColor="#ffffff"
                 android:textSize="14sp"
                 android:textIsSelectable="false"
@@ -52,6 +53,28 @@
 
     </RelativeLayout>
 
+
+
+
 </RelativeLayout>
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/relativeLayoutBanner"
+            android:id="@+id/relativeLayoutBackGround">
+        <ImageButton
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:id="@+id/buttonAnarFesta"
+                android:background="@drawable/button_reservar"
+                android:layout_below="@+id/relativeLayoutBackGround"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="buttonReservar"/>
+    </RelativeLayout>
 
 </RelativeLayout>
