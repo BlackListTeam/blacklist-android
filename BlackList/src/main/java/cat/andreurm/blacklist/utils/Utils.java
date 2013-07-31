@@ -7,6 +7,8 @@ import android.util.Log;
 
 import java.util.Date;
 
+import cat.andreurm.blacklist.R;
+
 /**
  * Created by air on 18/07/13.
  */
@@ -51,6 +53,19 @@ public class Utils {
         SharedPreferences.Editor editor = settings.edit();
         editor.putString("userName",name);
         editor.commit();
+    }
+
+    public void setSessionId(String sessionId){
+        SharedPreferences settings = act.getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("sessionId",sessionId);
+        editor.commit();
+    }
+
+    public String getSessionId(){
+        SharedPreferences settings = act.getSharedPreferences(PREFS_NAME, 0);
+        String ret=settings.getString("sessionId", "");
+        return ret;
     }
 
     public String prettyDate(Date date){

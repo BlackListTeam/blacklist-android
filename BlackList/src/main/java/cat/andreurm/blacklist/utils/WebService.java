@@ -328,14 +328,29 @@ public class WebService {
                 JSONObject jsonObject = new JSONObject(result);
                 Log.d("AND-callGetCurrentReservation",jsonObject.toString());
 
-                ret.put("authError",false);
-                ret.put("errorMessage","");
+                ret.put("authError",(jsonObject.getJSONObject("response").getInt("authError") !=0));
+                ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
 
-                //TODO:Fer el parsing
 
+
+                if(!jsonObject.getJSONObject("response").isNull("reservation")){
+                    JSONObject r_json=jsonObject.getJSONObject("response").getJSONObject("reservation").getJSONObject("Reservation");
+                    Log.d("AND-RESERVATION",r_json.toString());
+                    Reservation r=new Reservation();
+                    r.escorts=r_json.getInt("escorts");
+                    r.vip=r_json.getBoolean("vip");
+                    r.rooms=r_json.getInt("rooms");
+                    r.qr=r_json.getString("qr");
+                    r.party_name=r_json.getString("party_name");
+                    ret.put("reservation",r);
+                }
+
+
+                Log.d("AND-callGetCurrentReservation",ret.toString());
                 ((WebServiceCaller) pare).webServiceReady(ret);
 
             } catch (Exception e) {
+                Log.d("AND-Exception",e.getMessage());
                 ret.put("authError",true);
                 ret.put("errorMessage","Error al conectar con los servidores");
                 ((WebServiceCaller) pare).webServiceReady(ret);
@@ -348,7 +363,7 @@ public class WebService {
     public void makeReservation(Reservation r,String session_id){
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(4);
         nameValuePairs.add(new BasicNameValuePair("escorts", Integer.toString(r.escorts)));
-        nameValuePairs.add(new BasicNameValuePair("vip", Integer.toString(r.vip)));
+        nameValuePairs.add(new BasicNameValuePair("vip", Boolean.toString(r.vip)));
         nameValuePairs.add(new BasicNameValuePair("rooms", Integer.toString(r.rooms)));
         nameValuePairs.add(new BasicNameValuePair("session_id", session_id));
 
@@ -367,7 +382,7 @@ public class WebService {
                 JSONObject jsonObject = new JSONObject(result);
                 Log.d("AND-callMakeReservation",jsonObject.toString());
 
-                ret.put("authError",false);
+                ret.put("authError",(jsonObject.getJSONObject("response").getInt("authError") !=0));
                 ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
 
                 //TODO: fer El parsing
@@ -416,10 +431,10 @@ public class WebService {
                 JSONObject jsonObject = new JSONObject(result);
                 Log.d("AND-callDeleteReservation",jsonObject.toString());
 
-                ret.put("authError",false);
-                ret.put("errorMessage","");
+                ret.put("authError",(jsonObject.getJSONObject("response").getInt("authError") !=0));
+                ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
+                ret.put("deleted",(jsonObject.getJSONObject("response").getInt("deleted") !=0));
 
-                //TODO:Fer el parsing
 
                 ((WebServiceCaller) pare).webServiceReady(ret);
 
@@ -465,8 +480,8 @@ public class WebService {
                 JSONObject jsonObject = new JSONObject(result);
                 Log.d("AND-callGetMessages",jsonObject.toString());
 
-                ret.put("authError",false);
-                ret.put("errorMessage","");
+                ret.put("authError",(jsonObject.getJSONObject("response").getInt("authError") !=0));
+                ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
 
                 //TODO:Fer el parsing
 
@@ -503,7 +518,7 @@ public class WebService {
                 JSONObject jsonObject = new JSONObject(result);
                 Log.d("AND-callReplyMessage",jsonObject.toString());
 
-                ret.put("authError",false);
+                ret.put("authError",(jsonObject.getJSONObject("response").getInt("authError") !=0));
                 ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
 
                 //TODO: fer El parsing
@@ -540,7 +555,7 @@ public class WebService {
                 JSONObject jsonObject = new JSONObject(result);
                 Log.d("AND-callAddMessage",jsonObject.toString());
 
-                ret.put("authError",false);
+                ret.put("authError",(jsonObject.getJSONObject("response").getInt("authError") !=0));
                 ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
 
                 //TODO: fer El parsing
@@ -589,8 +604,8 @@ public class WebService {
                 JSONObject jsonObject = new JSONObject(result);
                 Log.d("AND-callDeleteMessage",jsonObject.toString());
 
-                ret.put("authError",false);
-                ret.put("errorMessage","");
+                ret.put("authError",(jsonObject.getJSONObject("response").getInt("authError") !=0));
+                ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
 
                 //TODO:Fer el parsing
 
@@ -626,10 +641,9 @@ public class WebService {
                 JSONObject jsonObject = new JSONObject(result);
                 Log.d("AND-callSendInvitation",jsonObject.toString());
 
-                ret.put("authError",false);
+                ret.put("authError",(jsonObject.getJSONObject("response").getInt("authError") !=0));
                 ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
-
-                //TODO: fer El parsing
+                ret.put("sended",(jsonObject.getJSONObject("response").getInt("sended") !=0));
 
                 ((WebServiceCaller) pare).webServiceReady(ret);
 
@@ -676,8 +690,8 @@ public class WebService {
                 JSONObject jsonObject = new JSONObject(result);
                 Log.d("AND-callGetNewMessages",jsonObject.toString());
 
-                ret.put("authError",false);
-                ret.put("errorMessage","");
+                ret.put("authError",(jsonObject.getJSONObject("response").getInt("authError") !=0));
+                ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
 
                 //TODO:Fer el parsing
 
@@ -726,8 +740,8 @@ public class WebService {
                 JSONObject jsonObject = new JSONObject(result);
                 Log.d("AND-callReadMessages",jsonObject.toString());
 
-                ret.put("authError",false);
-                ret.put("errorMessage","");
+                ret.put("authError",(jsonObject.getJSONObject("response").getInt("authError") !=0));
+                ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
 
                 //TODO:Fer el parsing
 

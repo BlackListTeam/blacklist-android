@@ -35,7 +35,7 @@
     <string name="tab_group_activity">TabGroupActivity</string>
     <string name="invitacionesProximaFiesta">INVITACIONES PARA PRÓXIMA FIESTA</string>
     <string name="invitarOtrasPersonas">SI QUIERES, PUEDES INVITAR A OTRAS PERSONAS A ASISTIR AL PRÓXIMO EVENTO BLACKLIST</string>
-    <string name="introduceMails">INTRODUCE UNO POR UNO LOS MAILS DONDEQUIERES QUE SE MANDE TU CÓDIGO DE INVITADOS</string>
+    <string name="introduceMails">INTRODUCE UNO POR UNO LOS MAILS DONDE QUIERES QUE SE MANDE TU CÓDIGO DE INVITADOS</string>
     <string name="reservaRealizadaEvento">RESERVA REALIZADA PARA ESTE EVENTO</string>
     <string name="codigoAutorizacion">CÓDIGO DE AUTORIZACIÓN DE ENTRADA</string>
     <string name="mensajes">MENSAJES</string>
@@ -67,5 +67,23 @@
     <string name="login_problems">Problemas para acceder</string>
     <string name="acceder">Acceder</string>
     <string name="contactar">contactar</string>
+    <string name="invitation_sended">Invitación enviada correctamente</string>
+    <string name="img_download_error">Error al descargar la imagen</string>
+    <string name="you">TÚ</string>
+    <string name="escort">ACOMPAÑANTE</string>
+    <string name="escorts">ACOMPAÑANTES</string>
+    <string name="vip_space">+ ESPACIO V.I.P.</string>
+    <string name="room">HABITACIÓN</string>
+    <string name="rooms">HABITACIONES</string>
+    <string name="plus">+</string>
+    <string name="code_or_pass">Código o Password</string>
+    <string name="enter_here">Introduce aquí</string>
+    <string name="warning">Aviso</string>
+    <string name="no_active_reservation">No tienes ninguna reserva activa</string>
+    <string name="see_parties">Ver Fiestas</string>
+    <string name="confirm_cancel_reservation">Estás seguro de querer anular la reserva?</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="reservation_canceled">Reserva anulada correctamente</string>
 
 </resources>

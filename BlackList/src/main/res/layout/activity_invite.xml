@@ -39,8 +39,8 @@
                         android:layout_centerHorizontal="true"
                         android:gravity="center"
                         android:textColor="#00ccb6"
-                        android:layout_marginTop="12dp"
-                        android:textSize="14sp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="14dp"
                         android:textIsSelectable="false"
                         android:layout_marginLeft="25dp"
                         android:layout_marginRight="25dp"/>
@@ -54,7 +54,7 @@
                         android:layout_centerHorizontal="true"
                         android:textColor="#ffffff"
                         android:layout_marginTop="20dp"
-                        android:textSize="16sp"
+                        android:textSize="17dp"
                         android:textIsSelectable="false"
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"/>
@@ -66,23 +66,28 @@
                         android:textColor="#ffffff"
                         android:id="@+id/inputInvite"
                         android:background="@drawable/input_full_width"
-                        android:gravity="center"
+                        android:gravity="center_vertical"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="15dp"
-                        android:inputType="text"
-                        android:cursorVisible="false"/>
+                        android:layout_marginTop="20dp"
+                        android:inputType="textEmailAddress"
+                        android:paddingLeft="25dp"
+                        android:paddingRight="25dp"
+                        android:cursorVisible="false"
+                        android:hint="@string/enter_here"
+                        android:ellipsize="end"/>
                 <ImageButton
                         style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:scaleType="fitCenter"
                         android:id="@+id/button"
-                        android:background="@drawable/button_ok"
+                        android:background="@drawable/and_ok_invitations"
                         android:layout_alignParentEnd="false"
                         android:layout_alignParentStart="false"
                         android:layout_below="@+id/inputInvite"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="15dp"
+                        android:onClick="sendInvitation"
                         />
             </RelativeLayout>
 
@@ -92,7 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageViewBoxTitol"
-                android:background="@drawable/box_titol_event"
+                android:background="@drawable/and_bkg_title_invitations"
                 android:layout_centerHorizontal="true"
                 android:contentDescription="@string/logo">
         <TextView
@@ -103,7 +108,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:textColor="#ffffff"
-                android:textSize="12dp"
+                android:textSize="17dp"
                 android:textIsSelectable="false"/>
             </RelativeLayout>
     </RelativeLayout>
