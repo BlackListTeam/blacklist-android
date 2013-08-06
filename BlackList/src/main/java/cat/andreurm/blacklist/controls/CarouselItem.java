@@ -40,10 +40,10 @@ public class CarouselItem extends FrameLayout
         this.setLayoutParams(params);
 
         LayoutInflater inflater = LayoutInflater.from(context);
-        View itemTemplate = inflater.inflate(R.layout.item, this, true);
+        //View itemTemplate = inflater.inflate(R.layout.item, this, true);
 
-        mImage = (ImageView)itemTemplate.findViewById(R.id.item_image);
-        mText = (TextView)itemTemplate.findViewById(R.id.item_text);
+        //mImage = (ImageView)itemTemplate.findViewById(R.id.item_image);
+        //mText = (TextView)itemTemplate.findViewById(R.id.item_text);
 
     }
 
