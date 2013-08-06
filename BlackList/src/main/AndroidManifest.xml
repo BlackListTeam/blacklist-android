@@ -76,7 +76,8 @@
         </activity>
         <activity
                 android:name="cat.andreurm.blacklist.activities.WriteMessageActivity"
-                android:label="@string/title_activity_write_message" >
+                android:label="@string/title_activity_write_message"
+                android:windowSoftInputMode="stateHidden|adjustPan">
         </activity>
         <activity
                 android:name="cat.andreurm.blacklist.activities.TabGroupActivity"

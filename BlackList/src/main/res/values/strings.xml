@@ -85,5 +85,11 @@
     <string name="yes">Si</string>
     <string name="no">No</string>
     <string name="reservation_canceled">Reserva anulada correctamente</string>
+    <string name="messages_no">No tienes mensajes</string>
+    <string name="from">DE:</string>
+    <string name="delete_message">Estás seguro de querer eliminar el mensaje?</string>
+    <string name="message_deleted">Mensaje eliminado correctamente</string>
+    <string name="write_here">Escribe aquí tu mensaje.\nTe constestaremos tan rápido como sea posible.</string>
+    <string name="message_sended">Mensaje enviado correctamente</string>
 
 </resources>
