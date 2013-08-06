@@ -42,7 +42,6 @@
                         android:layout_marginLeft="20dp"
                         android:onClick="writeMessage"
                         />
-
             </RelativeLayout>
 
             <ScrollView

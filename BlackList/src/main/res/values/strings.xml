@@ -91,5 +91,6 @@
     <string name="message_deleted">Mensaje eliminado correctamente</string>
     <string name="write_here">Escribe aquí tu mensaje.\nTe constestaremos tan rápido como sea posible.</string>
     <string name="message_sended">Mensaje enviado correctamente</string>
+    <string name="title_activity_carousel_demo">CarouselDemoActivity</string>
 
 </resources>
