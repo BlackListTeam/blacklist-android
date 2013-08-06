@@ -61,12 +61,30 @@
     <string name="email_chooser_title">Enviar Email</string>
     <string name="email_mime_type">message/rfc822</string>
     <string name="no_email_error">No hay ningún cliente de email instalado.</string>
-    <string name="empty_string"></string>
+    <string name="empty_string"/>
     <string name="login">login</string>
     <string name="solicitar_datos">solicitar datos</string>
     <string name="login_problems">Problemas para acceder</string>
     <string name="acceder">Acceder</string>
     <string name="contactar">contactar</string>
+    <string name="invitation_sended">Invitación enviada correctamente</string>
+    <string name="img_download_error">Error al descargar la imagen</string>
+    <string name="you">TÚ</string>
+    <string name="escort">ACOMPAÑANTE</string>
+    <string name="escorts">ACOMPAÑANTES</string>
+    <string name="vip_space">+ ESPACIO V.I.P.</string>
+    <string name="room">HABITACIÓN</string>
+    <string name="rooms">HABITACIONES</string>
+    <string name="plus">+</string>
+    <string name="code_or_pass">Código o Password</string>
+    <string name="enter_here">Introduce aquí</string>
+    <string name="warning">Aviso</string>
+    <string name="no_active_reservation">No tienes ninguna reserva activa</string>
+    <string name="see_parties">Ver Fiestas</string>
+    <string name="confirm_cancel_reservation">Estás seguro de querer anular la reserva?</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="reservation_canceled">Reserva anulada correctamente</string>
     <string name="title_activity_carousel_demo">CarouselDemoActivity</string>
 
 </resources>

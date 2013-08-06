@@ -1,25 +1,33 @@
 package cat.andreurm.blacklist.activities;
 
+import android.app.Service;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Hashtable;
 
 import cat.andreurm.blacklist.R;
 import cat.andreurm.blacklist.utils.Utils;
 import cat.andreurm.blacklist.utils.WebService;
+import cat.andreurm.blacklist.utils.WebServiceCaller;
 
 /**
  * Created by air on 24/07/13.
  */
-public class LoginActivity extends Activity {
+public class LoginActivity extends Activity implements WebServiceCaller{
 
-    Utils   u;
+    Utils u;
     WebService ws;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +35,7 @@ public class LoginActivity extends Activity {
 
         u=new Utils(this);
         ws=new WebService(this);
+
 
         Typeface font = Typeface.createFromAsset(getAssets(), getString(R.string.bebas_neue));
 
@@ -54,6 +63,32 @@ public class LoginActivity extends Activity {
             startActivity(Intent.createChooser(i, getString(R.string.email_chooser_title)));
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(LoginActivity.this, getString(R.string.no_email_error), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void login (View view){
+        EditText input_name= (EditText) findViewById(R.id.login_name);
+        EditText input_pass= (EditText) findViewById(R.id.login_password);
+        ws.login(input_name.getText().toString(), input_pass.getText().toString());
+    }
+
+    @Override
+    public void webServiceReady(Hashtable result) {
+
+        Boolean auth_error= (Boolean) result.get("authError");
+        if(auth_error){
+            Toast.makeText(getApplicationContext(), (String) result.get("errorMessage"), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Boolean logged= (Boolean) result.get("logged");
+        if(logged){
+            u.setSessionId((String) result.get("sessionId"));
+            TextView txt = (TextView) findViewById(R.id.login_name);
+            u.saveUserName(txt.getText().toString());
+            startActivity(new Intent(this, TabHostActivity.class));
+        }else{
+            Toast.makeText(getApplicationContext(), (String) result.get("errorMessage"), Toast.LENGTH_SHORT).show();
         }
     }
 

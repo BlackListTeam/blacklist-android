@@ -34,50 +34,68 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nom de la festa"
+
                         android:id="@+id/textViewPartyName"
                         android:layout_centerHorizontal="true"
                         android:gravity="center"
                         android:textColor="#ffffff"
-                        android:layout_marginTop="12dp"
-                        android:textSize="14sp"
+                        android:layout_marginTop="20dp"
+                        android:textSize="14dp"
                         android:textIsSelectable="false"
                         android:layout_marginLeft="25dp"
                         android:layout_marginRight="25dp"/>
 
-                <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/textViewQrImage"
+                <RelativeLayout
+                        android:layout_width="253dp"
+                        android:layout_height="253dp"
                         android:layout_below="@+id/textViewPartyName"
-                        android:contentDescription="qr"/>
+                        android:id="@+id/qr_wrapper"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="0dp"
+                        android:background="@drawable/and_bkg_qr_reservation">
+                    <ImageView
+                            android:layout_width="225dp"
+                            android:layout_height="225dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="15dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="16dp"
+                            android:id="@+id/textViewQrImage"
+                            android:contentDescription="qr"/>
+                </RelativeLayout>
+
+
+
+                <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:gravity="center"
+                        android:id="@+id/textViewInfo"
+
+
+                        android:layout_centerHorizontal="true"
+                        android:textColor="#ffffff"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="20dp"
+                        android:textSize="14dp"
+                        android:textIsSelectable="false"
+                        android:background="#000000"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:id="@+id/textViewReservaRealizada"
-                        android:layout_below="@+id/textViewQrImage"
+                        android:layout_above="@+id/textViewInfo"
                         android:layout_centerHorizontal="true"
                         android:textColor="#00ccb6"
                         android:text="@string/reservaRealizadaEvento"
-                        android:layout_marginTop="20dp"
-                        android:textSize="12sp"
+                        android:layout_marginBottom="-10dp"
+                        android:textSize="12dp"
                         android:textIsSelectable="false"/>
-                <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:id="@+id/textViewInfo"
-                        android:layout_below="@+id/textViewReservaRealizada"
-                        android:layout_centerHorizontal="true"
-                        android:textColor="#ffffff"
-                        android:text="TU + 5 ACOMPAÑANTES + ESPACIO V.I.P. + HABITACIÓN"
-                        android:layout_marginTop="15dp"
-                        android:textSize="12sp"
-                        android:textIsSelectable="false"/>
-
-
 
             </RelativeLayout>
 
@@ -87,9 +105,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageView"
-                android:background="@drawable/box_titol_event"
+                android:background="@drawable/and_bkg_title_reservations"
                 android:layout_centerHorizontal="true"
-                android:contentDescription="@string/logo">
+                android:contentDescription="@string/logo"
+                android:layout_marginTop="15dp">
+
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -98,7 +118,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:textColor="#ffffff"
-                    android:textSize="12dp"
+                    android:textSize="17dp"
                     android:textIsSelectable="false"/>
         </RelativeLayout>
         <ImageButton
@@ -111,7 +131,8 @@
                 android:layout_below="@+id/relativeLayoutBackGround"
                 android:layout_centerHorizontal="true"
                 android:contentDescription="buttonAnular"
-                android:layout_marginTop="-10dp"/>
+                android:layout_marginTop="-15dp"
+                android:onClick="cancelReservation"/>
     </RelativeLayout>
 
 
