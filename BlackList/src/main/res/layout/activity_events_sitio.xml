@@ -91,32 +91,64 @@
                     <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true">
-                    <ImageButton
-                            style="?android:attr/buttonStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:scaleType="fitCenter"
-                            android:id="@+id/buttonMap"
-                            android:background="@drawable/map"
-                            android:layout_below="@+id/relativeLayoutBackGround"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginRight="20dp"
-                            android:contentDescription="buttonSitio"/>
+                            android:id="@+id/linearLayoutButtons">
+
 
                     <ImageButton
                             style="?android:attr/buttonStyleSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:scaleType="fitCenter"
-                            android:id="@+id/buttonPicture"
+                            android:id="@+id/buttonPictures"
                             android:background="@drawable/pictures"
                             android:layout_below="@+id/relativeLayoutBackGround"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
                             android:contentDescription="buttonSitio"/>
+                        <ImageButton
+                                style="?android:attr/buttonStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scaleType="fitCenter"
+                                android:id="@+id/buttonMap"
+                                android:background="@drawable/map"
+                                android:layout_below="@+id/relativeLayoutBackGround"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="21dp"
+                                android:layout_marginLeft="20dp"
+                                android:contentDescription="buttonSitio"/>
                     </LinearLayout>
+                    <RelativeLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/relativeLayoutContentText"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/linearLayoutButtons"
+                            android:background="@android:color/black"
+                            android:layout_marginTop="10dp"
+                        >
+                        <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:padding="5dp"
+                                android:background="@android:color/black"
+                                android:textColor="@android:color/white"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:maxLines="4"
+                                android:textSize="11dp"
+                                android:text="Small Text"
+                                android:id="@+id/textViewPlaceInfo"
+                                android:gravity="center_horizontal"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:scrollbars="vertical"
+                                android:editable="false"/>
+                        </RelativeLayout>
+
 
                 </RelativeLayout>
 
@@ -142,7 +174,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:textColor="#ffffff"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textIsSelectable="false"/>
         </RelativeLayout>
         <ImageButton

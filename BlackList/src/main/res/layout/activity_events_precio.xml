@@ -96,13 +96,16 @@
                             android:textColor="@android:color/white"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceSmall"
-                            android:lines="8"
+                            android:maxLines="8"
+                            android:textSize="11dp"
                             android:text="Small Text"
                             android:id="@+id/textViewPrecio"
                             android:gravity="center_horizontal"
                             android:layout_below="@+id/relativeLayoutMenu"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="21dp"/>
+                            android:layout_marginTop="21dp"
+                            android:scrollbars="vertical"
+                            android:editable="false"/>
 
                 </RelativeLayout>
 
@@ -125,7 +128,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:textColor="#ffffff"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textIsSelectable="false"/>
         </RelativeLayout>
         <ImageButton

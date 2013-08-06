@@ -61,7 +61,7 @@
     <string name="email_chooser_title">Enviar Email</string>
     <string name="email_mime_type">message/rfc822</string>
     <string name="no_email_error">No hay ningún cliente de email instalado.</string>
-    <string name="empty_string"/>
+    <string name="empty_string"></string>
     <string name="login">login</string>
     <string name="solicitar_datos">solicitar datos</string>
     <string name="login_problems">Problemas para acceder</string>
@@ -86,5 +86,7 @@
     <string name="no">No</string>
     <string name="reservation_canceled">Reserva anulada correctamente</string>
     <string name="title_activity_carousel_demo">CarouselDemoActivity</string>
+    <string name="no_messages">NO TIENES NINGÚN MENSAJE</string>
+    <string name="title_activity_download_images_task">DownloadImagesTask</string>
 
 </resources>

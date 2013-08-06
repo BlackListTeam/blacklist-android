@@ -5,7 +5,7 @@ package cat.andreurm.blacklist.model;
  */
 public class Reservation {
     public int escorts;
-    public Boolean vip;
+    public boolean vip;
     public int rooms;
     public String qr;
     public String party_name;
