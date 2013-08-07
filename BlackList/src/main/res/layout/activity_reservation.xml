@@ -45,7 +45,8 @@
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/textViewImageEvent"
                         android:background="@drawable/datos_reserva"
-                        android:layout_marginTop="10dp">
+                        android:layout_marginTop="10dp"
+                        android:minHeight="220dp">
                     <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -57,8 +58,48 @@
                                 android:layout_height="wrap_content"
                                 android:textAppearance="?android:attr/textAppearanceMedium"
                                 android:text="@string/acompanantes"
+                                android:layout_marginTop="2dp"
                                 android:id="@+id/textViewAcompanantes"
                                 android:layout_alignParentLeft="true"/>
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:orientation="horizontal"
+                                android:layout_marginLeft="63dp"
+                                android:layout_marginTop="-5dp">
+
+                            <Button
+                                    android:id="@+id/btn_minus_acompanantes"
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="-"
+
+                                    android:layout_marginTop="-3dp"
+                                    android:padding="3dp"/>
+
+                            <EditText
+                                    android:id="@+id/edit_text_acompanantes"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:inputType="number"
+                                    android:gravity="center"
+                                    android:focusable="false"
+                                    android:text="0"
+                                    android:background="@android:color/black"
+                                    android:textColor="@android:color/white"
+                                    android:layout_margin="0dp"
+                                    android:padding="3dp"/>
+
+                            <Button
+                                    android:id="@+id/btn_plus_acompanantes"
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="+"
+                                    android:textSize="10dp"
+                                    android:layout_marginTop="-5dp"
+                                    android:padding="1dp"/>
+                        </LinearLayout>
 
                     </LinearLayout>
                     <LinearLayout
@@ -67,7 +108,7 @@
                             android:id="@+id/linearLayoutVip"
                             android:layout_below="@+id/linearLayoutAcompanantes"
                             android:layout_marginLeft="11dp"
-                            android:layout_marginTop="20dp">
+                            android:layout_marginTop="0dp">
                         <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -75,7 +116,16 @@
                                 android:text="@string/vip"
                                 android:id="@+id/textViewVip"
                                 android:layout_marginRight="20dp"
+                                android:layout_marginTop="2dp"
                                 android:layout_alignParentLeft="true"/>
+
+                        <CheckBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/checkBoxVip"
+                                android:layout_marginLeft="45dp"
+                                android:layout_centerVertical="true"
+                                android:layout_toRightOf="@+id/buttonContactoEspecial"/>
 
 
                     </LinearLayout>
@@ -84,15 +134,56 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/linearLayoutHabitaciones"
                             android:layout_below="@+id/linearLayoutVip"
-                            android:layout_marginLeft="11dp"
-                            android:layout_marginTop="20dp">
+                            android:layout_marginLeft="12dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="5dp">
                         <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textAppearance="?android:attr/textAppearanceMedium"
                                 android:text="@string/habitaciones"
+                                android:layout_marginTop="2dp"
                                 android:id="@+id/textViewHabitaciones"
                                 android:layout_alignParentLeft="true"/>
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:orientation="horizontal"
+                                android:layout_marginLeft="75dp"
+                                android:layout_marginTop="-5dp">
+
+                            <Button
+                                    android:id="@+id/btn_minus_rooms"
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="-"
+
+                                    android:layout_marginTop="-3dp"
+                                    android:padding="3dp"/>
+
+                            <EditText
+                                    android:id="@+id/edit_text_rooms"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:inputType="number"
+                                    android:gravity="center"
+                                    android:focusable="false"
+                                    android:text="0"
+                                    android:background="@android:color/black"
+                                    android:textColor="@android:color/white"
+                                    android:layout_margin="0dp"
+                                    android:padding="3dp"/>
+
+                            <Button
+                                    android:id="@+id/btn_plus_rooms"
+                                    android:layout_width="40dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="+"
+                                    android:textSize="10dp"
+                                    android:layout_marginTop="-5dp"
+                                    android:padding="1dp"/>
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -109,7 +200,7 @@
                             android:layout_alignParentLeft="true"
                             android:contentDescription="buttonReservar"
                             android:layout_marginLeft="11dp"
-                            android:layout_marginTop="15dp"/>
+                            android:layout_marginTop="20dp"/>
 
                     <ImageButton
                             style="?android:attr/buttonStyleSmall"
@@ -121,7 +212,10 @@
                             android:layout_below="@+id/linearLayoutHabitaciones"
                             android:layout_alignParentRight="true"
                             android:contentDescription="buttonReservar"
-                            android:layout_marginRight="20dp"/>
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="20dp"/>
+
+
 
                 </RelativeLayout>
 

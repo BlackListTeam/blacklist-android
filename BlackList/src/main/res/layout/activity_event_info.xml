@@ -87,22 +87,25 @@
                     android:layout_below="@+id/relativeLayoutMenu"
                     android:background="@android:color/black"
                     android:layout_marginTop="10dp">
-                <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:padding="5dp"
-                        android:background="@android:color/black"
-                        android:textColor="@android:color/white"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:lines="8"
-                        android:text="Small Text"
-                        android:id="@+id/textViewInfo"
-                        android:gravity="center_horizontal"
-                        android:layout_below="@+id/relativeLayoutMenu"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="21dp"/>
+                    <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:padding="5dp"
+                            android:background="@android:color/black"
+                            android:textColor="@android:color/white"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:maxLines="8"
+                            android:textSize="11dp"
+                            android:text="Small Text"
+                            android:id="@+id/textViewInfo"
+                            android:gravity="center_horizontal"
+                            android:layout_below="@+id/relativeLayoutMenu"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="21dp"
+                            android:scrollbars="vertical"
+                            android:editable="false"/>
 
             </RelativeLayout>
             </RelativeLayout>
@@ -126,7 +129,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:textColor="#ffffff"
-                    android:textSize="12dp"
+                    android:textSize="13dp"
                     android:textIsSelectable="false"/>
         </RelativeLayout>
         <ImageButton

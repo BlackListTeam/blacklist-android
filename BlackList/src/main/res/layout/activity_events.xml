@@ -68,27 +68,11 @@
             android:layout_marginTop="20dp"
             android:id="@+id/relativeLayoutBackGround">
 
-        <!--<cat.andreurm.blacklist.controls.Carousel
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+        <!--<com.digitalaria.gama.carousel.Carousel
                 android:id="@+id/carousel"
-                pj:UseReflection="true"
-                pj:Items="@array/entries"
-                pj:Names="@array/names"
-                pj:SelectedItem="0"
-                android:animationDuration="200"
-                />
-
-        <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.5"
-                android:text="text"
-                android:id="@+id/selected_item"
-                android:background="#1E1921"
-                android:textColor="#A85E4F"
-                android:textStyle="normal"
-                />-->
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"/>-->
 
     </RelativeLayout>
 

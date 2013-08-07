@@ -57,7 +57,7 @@ public class TabGroupActivity extends ActivityGroup {
      * @throws android.content.ActivityNotFoundException.
      */
     public void startChildActivity(String Id, Intent intent) {
-        Window window = getLocalActivityManager().startActivity(Id,intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+        Window window = getLocalActivityManager().startActivity(Id,intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP));
         if (window != null) {
             mIdList.add(Id);
             setContentView(window.getDecorView());

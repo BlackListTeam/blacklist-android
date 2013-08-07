@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.app.Activity;
 import android.util.Log;
 
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Date;
 
 import cat.andreurm.blacklist.R;
@@ -71,5 +73,22 @@ public class Utils {
     public String prettyDate(Date date){
         String ret="todo";
         return ret;
+    }
+
+    public static void CopyStream(InputStream is, OutputStream os)
+    {
+        final int buffer_size=1024;
+        try
+        {
+            byte[] bytes=new byte[buffer_size];
+            for(;;)
+            {
+                int count=is.read(bytes, 0, buffer_size);
+                if(count==-1)
+                    break;
+                os.write(bytes, 0, count);
+            }
+        }
+        catch(Exception ex){}
     }
 }

@@ -1,8 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="fill_parent"
+              android:layout_height="match_parent"
+              android:id="@+id/countdownLayout"
+              android:gravity="center_horizontal"
+                android:layout_centerHorizontal="true">
 
-</LinearLayout>
+
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/countdown"
+            android:id="@+id/linearLayoutDias"
+            android:layout_margin="10dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="0"
+                android:textSize="50dp"
+                android:paddingBottom="5dp"
+                android:id="@+id/textViewDias"
+                android:layout_gravity="center_horizontal|top"/>
+
+            </RelativeLayout>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="DÍAS"
+            android:layout_below="@+id/linearLayoutDias"
+            android:textSize="26dp"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/labelDias"/>
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/countdown"
+            android:id="@+id/linearLayoutHoras"
+            android:layout_toRightOf="@+id/linearLayoutDias"
+            android:layout_margin="10dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="0"
+                android:paddingBottom="5dp"
+                android:textSize="50dp"
+                android:id="@+id/textViewHoras"
+                android:layout_gravity="center_horizontal|top"/>
+
+    </RelativeLayout>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="HORAS"
+            android:layout_below="@+id/linearLayoutHoras"
+            android:layout_toRightOf="@+id/labelDias"
+            android:textSize="26dp"
+            android:layout_marginLeft="55dp"
+            android:id="@+id/labelHoras"/>
+
+    <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/countdown"
+            android:id="@+id/linearLayoutMinutos"
+            android:layout_toRightOf="@+id/linearLayoutHoras"
+            android:layout_margin="10dp">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="0"
+                android:paddingBottom="5dp"
+                android:textSize="50dp"
+                android:id="@+id/textViewMinutos"
+                android:layout_gravity="center_horizontal|top"/>
+
+    </RelativeLayout>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="MINUTOS"
+            android:layout_below="@+id/linearLayoutHoras"
+            android:layout_toRightOf="@+id/labelHoras"
+            android:textSize="26dp"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/labelMinutos"/>
+
+
+</RelativeLayout>

@@ -279,10 +279,33 @@ public class WebService {
                     Party p=new Party();
                     JSONObject aux=jsonparties.getJSONObject(i);
                     JSONObject p_aux=aux.getJSONObject("Party");
-                    p.cover=p_aux.getString("cover");
+                    JSONArray p_gallery=aux.getJSONArray("Image");
+                    p.cover = p_aux.getString("cover");
+                    p.cover = "http://www.blacklistmeetings.com/files/party/cover/"+p_aux.getString("cover_dir")+"/iphone_"+p_aux.getString("cover");
+                    p.image = "http://www.blacklistmeetings.com/files/party/img/"+p_aux.getString("img_dir")+"/iphone_"+p_aux.getString("img");
+                    p.party_id = Integer.parseInt(p_aux.getString("id"));
+                    p.name = p_aux.getString("name");
+                    p.date = p_aux.getString("date");
+                    p.info = p_aux.getString("info");
+                    p.place_text = p_aux.getString("place_text");
+                    p.price_info = p_aux.getString("price_info");
+                    p.latitude = Float.parseFloat(p_aux.getString("place_lat"));
+                    p.longitude = Float.parseFloat(p_aux.getString("place_long"));
+                    p.max_rooms = Integer.parseInt(p_aux.getString("max_rooms"));
+                    p.max_escorts = Integer.parseInt(p_aux.getString("max_escorts"));
+                    p.vip_allowed = Boolean.parseBoolean(p_aux.getString("vip_allowed"));
+                    p.location_date = p_aux.getString("place_date");
+                    p.address = p_aux.getString("address");
+                    p.gallery = new String[p_gallery.length()];
+                    for(int j=0;j<p_gallery.length();j++){
+                        JSONObject image=p_gallery.getJSONObject(j);
+                        p.gallery[j] = "http://www.blacklistmeetings.com/files/image/img/"+image.getString("img_dir")+"/iphone_"+image.getString("img");
+                    }
                     parties.add(p);
                 }
                 Log.d("AND-parties",parties.get(0).cover.toString());
+
+                ret.put("parties",parties);
 
                 ret.put("authError",jsonObject.getJSONObject("response").getInt("authError") !=0);
                 ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
@@ -295,8 +318,6 @@ public class WebService {
             }
         }
     }
-
-
 
     public void getCurrentReservation(String  session_id){
         try {
@@ -370,6 +391,7 @@ public class WebService {
         nameValuePairs.add(new BasicNameValuePair("session_id", session_id));
 
         Object[] call={WS_URL+"makeReservation",nameValuePairs};
+        Log.v("DADES RESERVA ",Integer.toString(r.escorts)+"    "+Boolean.toString(r.vip)+"     "+Integer.toString(r.rooms)+"    "+session_id );
         new callMakeReservation().execute(call);
     }
 
@@ -384,7 +406,12 @@ public class WebService {
                 JSONObject jsonObject = new JSONObject(result);
                 Log.d("AND-callMakeReservation",jsonObject.toString());
 
+
                 ret.put("authError",(jsonObject.getJSONObject("response").getInt("authError") !=0));
+
+                ret.put("reservated",(jsonObject.getJSONObject("response").getInt("reservated") !=0));
+
+
                 ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
 
                 //TODO: fer El parsing
