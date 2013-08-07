@@ -391,7 +391,6 @@ public class WebService {
         nameValuePairs.add(new BasicNameValuePair("session_id", session_id));
 
         Object[] call={WS_URL+"makeReservation",nameValuePairs};
-        Log.v("DADES RESERVA ",Integer.toString(r.escorts)+"    "+Boolean.toString(r.vip)+"     "+Integer.toString(r.rooms)+"    "+session_id );
         new callMakeReservation().execute(call);
     }
 

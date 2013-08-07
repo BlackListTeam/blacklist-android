@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cat.andreurm.blacklist"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="cat.andreurm.blacklist"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -19,7 +20,6 @@
             android:windowSoftInputMode="stateHidden|adjustPan" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -83,14 +83,8 @@
             android:label="@string/title_activity_write_message" >
         </activity>
         <activity
-<<<<<<< HEAD
-                android:name="cat.andreurm.blacklist.activities.WriteMessageActivity"
-                android:label="@string/title_activity_write_message"
-                android:windowSoftInputMode="stateHidden|adjustPan">
-=======
             android:name="cat.andreurm.blacklist.activities.TabGroupActivity"
             android:label="@string/tab_group_activity" >
->>>>>>> 0c61f23bbcad4f45fece6fee0700faef5134e1e7
         </activity>
         <activity
             android:name="cat.andreurm.blacklist.activities.ListMessagesActivity"
