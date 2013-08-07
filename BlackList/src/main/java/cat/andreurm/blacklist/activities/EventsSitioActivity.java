@@ -5,6 +5,8 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.app.Activity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Gravity;
@@ -17,6 +19,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -28,7 +36,7 @@ import java.util.Date;
 import cat.andreurm.blacklist.R;
 import cat.andreurm.blacklist.model.Party;
 
-public class EventsSitioActivity extends Activity {
+public class EventsSitioActivity extends android.support.v4.app.FragmentActivity {
 
     Button buttonPrecio;
     Button buttonInfo;
@@ -82,8 +90,8 @@ public class EventsSitioActivity extends Activity {
         buttonMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO Show map
-                showMap(rContent,p.latitude,p.longitude);
+
+                showMap(rContent,p.latitude,p.longitude,p.address);
             }
         });
 
@@ -194,14 +202,21 @@ public class EventsSitioActivity extends Activity {
 
     }
 
-    private void showMap(RelativeLayout r, float latitude, float longitude){
+    private void showMap(RelativeLayout r, float latitude, float longitude,String address){
         //Eliminem totes les vistes que hi han al Layout on s'ha de mostrar el mapa
         r.removeAllViewsInLayout();
         //Centrem la info del Layout per a que el mapa quedi centrat
         r.setGravity(Gravity.CENTER_HORIZONTAL);
          //MapView map = new MapView(this,10)
 
+        // get an instance of FragmentTransaction from your Activity
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
+        //add a fragment
+        MapFragment myFragment = new MapFragment(latitude,longitude,address);
+        fragmentTransaction.add(R.id.relativeLayoutContentMenu, myFragment);
+        fragmentTransaction.commit();
     }
 
     public void showPictures(){

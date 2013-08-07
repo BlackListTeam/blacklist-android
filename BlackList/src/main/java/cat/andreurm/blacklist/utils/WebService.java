@@ -386,10 +386,15 @@ public class WebService {
     public void makeReservation(Reservation r,String session_id){
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(4);
         nameValuePairs.add(new BasicNameValuePair("escorts", Integer.toString(r.escorts)));
-        nameValuePairs.add(new BasicNameValuePair("vip", Boolean.toString(r.vip)));
+        if(r.vip){
+            nameValuePairs.add(new BasicNameValuePair("vip", "1"));
+        }else{
+            nameValuePairs.add(new BasicNameValuePair("vip", "0"));
+        }
+
         nameValuePairs.add(new BasicNameValuePair("rooms", Integer.toString(r.rooms)));
         nameValuePairs.add(new BasicNameValuePair("session_id", session_id));
-
+        
         Object[] call={WS_URL+"makeReservation",nameValuePairs};
         new callMakeReservation().execute(call);
     }

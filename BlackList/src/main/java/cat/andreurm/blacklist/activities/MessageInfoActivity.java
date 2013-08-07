@@ -1,5 +1,27 @@
 package cat.andreurm.blacklist.activities;
 
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+
+import cat.andreurm.blacklist.R;
+
+public class MessageInfoActivity extends android.support.v4.app.FragmentActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_map);
+
+    }
+
+
+}
+/*
 import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.Typeface;
@@ -57,3 +79,4 @@ public class MessageInfoActivity extends Activity {
     }
     
 }
+*/

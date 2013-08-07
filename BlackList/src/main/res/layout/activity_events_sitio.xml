@@ -118,6 +118,7 @@
                                 android:layout_marginTop="21dp"
                                 android:layout_marginLeft="20dp"
                                 android:contentDescription="buttonSitio"/>
+
                     </LinearLayout>
                     <RelativeLayout
                             android:layout_width="fill_parent"
