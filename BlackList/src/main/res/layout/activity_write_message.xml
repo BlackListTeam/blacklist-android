@@ -4,7 +4,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/bkg"
-                android:focusableInTouchMode="false">
+                android:focusableInTouchMode="false"
+                android:id="@+id/wrapperLayout">
     <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -39,7 +40,7 @@
                         android:layout_alignParentEnd="false"
                         android:layout_alignParentStart="false"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="40dp"
+                        android:layout_marginLeft="20dp"
                         />
             </RelativeLayout>
 
@@ -52,43 +53,37 @@
                     android:padding="5dp"
                     android:background="@android:color/black"
                     android:textColor="@android:color/white"
-                    android:lines="10"
+                    android:lines="14"
                     android:id="@+id/editTextMessage"
                     android:layout_below="@+id/relativeLayoutContent"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="21dp"/>
+                    android:layout_marginTop="21dp"
+                    android:ellipsize="end"
+                    android:gravity="top"
+                    android:textSize="12dp"
+                    android:hint="@string/write_here"/>
 
             <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_below="@+id/editTextMessage"
+                    android:gravity="center_horizontal"
                     android:id="@+id/relativeLayoutBottom">
 
-                <ImageButton
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:scaleType="fitCenter"
-                        android:id="@+id/buttonDescartar"
-                        android:background="@drawable/button_descartar"
-                        android:layout_alignParentEnd="false"
-                        android:layout_alignParentStart="false"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="40dp"
-                        />
-                <ImageButton
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:scaleType="fitCenter"
-                        android:id="@+id/buttonEnviar"
-                        android:background="@drawable/button_enviar"
-                        android:layout_alignParentEnd="true"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="10dp"
-                        />
+
             </RelativeLayout>
+
+            <ImageButton
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:id="@+id/buttonEnviar"
+                    android:background="@drawable/button_enviar"
+                    android:layout_alignTop="@+id/relativeLayoutBottom"
+                    android:layout_centerHorizontal="true"
+                    android:onClick="sendMessage"/>
 
         </RelativeLayout>
 
@@ -96,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageViewTituloMensajes"
-                android:background="@drawable/box_titol_event"
+                android:background="@drawable/and_bkg_write_msj"
                 android:layout_centerHorizontal="true"
                 android:contentDescription="@string/logo">
             <TextView
@@ -107,7 +102,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:textColor="#ffffff"
-                    android:textSize="13dp"
+                    android:textSize="17dp"
                     android:textIsSelectable="false"/>
         </RelativeLayout>
     </RelativeLayout>

@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageViewTituloMensajes"
-                android:background="@drawable/box_titol_event"
+                android:background="@drawable/and_bkg_msjs"
                 android:layout_centerHorizontal="true"
                 android:contentDescription="@string/logo">
             <TextView
@@ -60,7 +60,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:textColor="#ffffff"
-                    android:textSize="13dp"
+                    android:textSize="17dp"
                     android:textIsSelectable="false"/>
         </RelativeLayout>
     </RelativeLayout>

@@ -40,25 +40,27 @@
                         android:layout_alignParentStart="false"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="20dp"
+                        android:onClick="writeMessage"
                         />
+            </RelativeLayout>
 
-                <ScrollView
+            <ScrollView
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/buttonEscribirMensaje"
+                    android:layout_height="260dp"
+                    android:layout_below="@+id/relativeLayoutContent"
                     android:layout_marginTop="20dp"
                     android:id="@+id/scrollViewMensajes">
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+
+                <LinearLayout
                         android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
                         android:id="@+id/listMessages">
 
-                    </LinearLayout>
-                </ScrollView>
 
 
-            </RelativeLayout>
+                </LinearLayout>
+            </ScrollView>
 
         </RelativeLayout>
 
@@ -66,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageViewTituloMensajes"
-                android:background="@drawable/box_titol_event"
+                android:background="@drawable/and_bkg_msjs"
                 android:layout_centerHorizontal="true"
                 android:contentDescription="@string/logo">
             <TextView
@@ -77,7 +79,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:textColor="#ffffff"
-                    android:textSize="13dp"
+                    android:textSize="17dp"
                     android:textIsSelectable="false"/>
         </RelativeLayout>
     </RelativeLayout>

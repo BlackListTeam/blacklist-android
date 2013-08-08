@@ -35,7 +35,7 @@
     <string name="tab_group_activity">TabGroupActivity</string>
     <string name="invitacionesProximaFiesta">INVITACIONES PARA PRÓXIMA FIESTA</string>
     <string name="invitarOtrasPersonas">SI QUIERES, PUEDES INVITAR A OTRAS PERSONAS A ASISTIR AL PRÓXIMO EVENTO BLACKLIST</string>
-    <string name="introduceMails">INTRODUCE UNO POR UNO LOS MAILS DONDEQUIERES QUE SE MANDE TU CÓDIGO DE INVITADOS</string>
+    <string name="introduceMails">INTRODUCE UNO POR UNO LOS MAILS DONDE QUIERES QUE SE MANDE TU CÓDIGO DE INVITADOS</string>
     <string name="reservaRealizadaEvento">RESERVA REALIZADA PARA ESTE EVENTO</string>
     <string name="codigoAutorizacion">CÓDIGO DE AUTORIZACIÓN DE ENTRADA</string>
     <string name="mensajes">MENSAJES</string>
@@ -85,6 +85,12 @@
     <string name="yes">Si</string>
     <string name="no">No</string>
     <string name="reservation_canceled">Reserva anulada correctamente</string>
+    <string name="messages_no">No tienes mensajes</string>
+    <string name="from">DE:</string>
+    <string name="delete_message">Estás seguro de querer eliminar el mensaje?</string>
+    <string name="message_deleted">Mensaje eliminado correctamente</string>
+    <string name="write_here">Escribe aquí tu mensaje.\nTe constestaremos tan rápido como sea posible.</string>
+    <string name="message_sended">Mensaje enviado correctamente</string>
     <string name="title_activity_carousel_demo">CarouselDemoActivity</string>
     <string name="no_messages">NO TIENES NINGÚN MENSAJE</string>
     <string name="title_activity_download_images_task">DownloadImagesTask</string>
