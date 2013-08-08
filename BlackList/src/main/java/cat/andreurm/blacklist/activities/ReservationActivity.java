@@ -1,11 +1,14 @@
 package cat.andreurm.blacklist.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -35,6 +38,7 @@ public class ReservationActivity extends Activity implements WebServiceCaller {
     Party p;
     WebService ws;
     Utils u;
+    Reservation r;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,19 +157,14 @@ public class ReservationActivity extends Activity implements WebServiceCaller {
         buttonContacto.setTypeface(font);
         buttonContacto.setPaintFlags(buttonContacto.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);
 
-        buttonReservar.setOnClickListener(new View.OnClickListener() {
+        /*buttonReservar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Reservation r = new Reservation();
-                r.escorts = Integer.parseInt(numeroAcompanantes.getText().toString());
-                r.rooms = Integer.parseInt(numeroHabitaciones.getText().toString());
-                r.vip = vip.isChecked();
-                ws.makeReservation(r,u.getSessionId());
+
             }
-        });
+        });*/
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -181,12 +180,42 @@ public class ReservationActivity extends Activity implements WebServiceCaller {
             startActivity(new Intent(this,LoginActivity.class));
             return;
         }
-
         Boolean is_reservated= (Boolean) result.get("reservated");
         if(is_reservated){
-            startActivity(new Intent(getBaseContext(), CodeActivity.class));
+            Intent i = new Intent(getParent(), CodeActivity.class);
+            TabGroupActivity parentActivity = (TabGroupActivity)getParent();
+            parentActivity.startChildActivity("Code", i);
         }else{
             Toast.makeText(getApplicationContext(), (String) result.get("errorMessage"), Toast.LENGTH_SHORT).show();
         }
+    }
+
+
+    public void makeReservation(View view){
+
+        final CheckBox vip = (CheckBox) findViewById(R.id.checkBoxVip);
+        final TextView numeroHabitaciones = (TextView) findViewById(R.id.edit_text_rooms);
+        final TextView numeroAcompanantes = (TextView) findViewById(R.id.edit_text_acompanantes);
+        r = new Reservation();
+        r.escorts = Integer.parseInt(numeroAcompanantes.getText().toString());
+        r.rooms = Integer.parseInt(numeroHabitaciones.getText().toString());
+        r.vip = vip.isChecked();
+
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getParent())
+                .setTitle(getString(R.string.warning))
+                .setPositiveButton(getString(R.string.reservar), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Log.v("MAKE RESERVATION", "MAKE RESERVATION" + r.escorts);
+                        ws.makeReservation(r, u.getSessionId());
+                    }
+                })
+                .setNegativeButton(getString(R.string.cancelar), null);
+        TextView textView = new TextView(getParent());
+        textView.setText(getString(R.string.confirm_reservation));
+        textView.setGravity(Gravity.CENTER_HORIZONTAL);
+        textView.setTextSize(12);
+        dialog.setView(textView);
+        dialog.show();
     }
 }
