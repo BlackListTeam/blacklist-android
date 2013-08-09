@@ -100,8 +100,8 @@ public class TabGroupActivity extends ActivityGroup {
         int length = mIdList.size();
         LocalActivityManager manager = getLocalActivityManager();
         if ( length > 1) {
-         /* Activity current = getLocalActivityManager().getActivity(mIdList.get(length-1));
-          current.finish();*/
+         //Activity current = getLocalActivityManager().getActivity(mIdList.get(length-1));
+          //current.finish();
             int index = length-1;
             manager.destroyActivity(mIdList.get(index), true);
             mIdList.remove(index); index--;

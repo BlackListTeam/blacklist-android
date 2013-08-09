@@ -239,7 +239,6 @@ public class WebService {
 
 
 
-    //TODO: Fer el parsing
     public void getPartyCovers(String session_id){
         try {
             URI uri = new URI(
@@ -318,6 +317,8 @@ public class WebService {
             }
         }
     }
+
+
 
     public void getCurrentReservation(String  session_id){
         try {
@@ -537,7 +538,7 @@ public class WebService {
                         m.answer = aux_message.getBoolean("answer");
                         m.text = aux_message.getString("text");
                         m.pay_link = aux_message.getString("pay_link");
-                        //m.date = aux_message.getString("created");
+                        m.date = aux_message.getString("created");
                         mT.messages.add(m);
                     }
                     messageThreads.add(mT);

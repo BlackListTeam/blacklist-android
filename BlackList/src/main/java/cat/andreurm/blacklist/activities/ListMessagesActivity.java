@@ -60,6 +60,7 @@ public class ListMessagesActivity extends Activity implements WebServiceCaller {
 
     public void writeMessage(View view){
         Intent i = new Intent(getParent(), WriteMessageActivity.class);
+        i.putExtra("mt_id", 0);
         TabGroupActivity parentActivity = (TabGroupActivity)getParent();
         parentActivity.startChildActivity("WriteMessageActivity", i);
     }

@@ -6,6 +6,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 import java.util.Hashtable;
 
 import cat.andreurm.blacklist.R;
+import cat.andreurm.blacklist.model.MessageThread;
 import cat.andreurm.blacklist.utils.Utils;
 import cat.andreurm.blacklist.utils.WebService;
 import cat.andreurm.blacklist.utils.WebServiceCaller;
@@ -34,6 +36,7 @@ public class WriteMessageActivity extends Activity implements OnTouchListener, W
     RelativeLayout layout;
     Utils u;
     WebService ws;
+    int mt_id=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +72,21 @@ public class WriteMessageActivity extends Activity implements OnTouchListener, W
 
         layout = (RelativeLayout)findViewById(R.id.relativeLayoutGeneral);
         layout.setOnTouchListener(this);
+
+        Bundle b = getIntent().getExtras();
+        mt_id = b.getInt("mt_id",0);
+    }
+
+    @Override
+    protected void onNewIntent(Intent i){
+        Bundle b = i.getExtras();
+        mt_id = b.getInt("mt_id",0);
+        msj.setText(null);
+        //layout.requestFocus();
+        //TODO
+        /*msj.setSelected(false);
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(msj.getWindowToken(), 0);*/
     }
 
     @Override
@@ -82,12 +100,13 @@ public class WriteMessageActivity extends Activity implements OnTouchListener, W
     }
 
     public void sendMessage(View v){
-        ws.addMessage(msj.getText().toString(),u.getSessionId());
+        if(mt_id!=0){
+            Log.d("AND-MSJ", "REPLY");
+        }else{
+            ws.addMessage(msj.getText().toString(),u.getSessionId());
+        }
     }
 
-    @Override
-    public void onBackPressed() {
-    }
 
 
     @Override
@@ -109,6 +128,10 @@ public class WriteMessageActivity extends Activity implements OnTouchListener, W
         }else{
             Toast.makeText(getApplicationContext(), (String) result.get("errorMessage"), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }
 

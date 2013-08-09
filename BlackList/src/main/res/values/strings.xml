@@ -94,5 +94,12 @@
     <string name="title_activity_carousel_demo">CarouselDemoActivity</string>
     <string name="no_messages">NO TIENES NINGÚN MENSAJE</string>
     <string name="title_activity_download_images_task">DownloadImagesTask</string>
+    <string name="monday">LUNES</string>
+    <string name="tuesday">MARTES</string>
+    <string name="wednesday">MIÉRCOLES</string>
+    <string name="thursday">JUEVES</string>
+    <string name="friday">VIERNES</string>
+    <string name="saturday">SÁBADO</string>
+    <string name="sunday">DOMINGO</string>
 
 </resources>

@@ -39,9 +39,32 @@
                         android:layout_alignParentEnd="false"
                         android:layout_alignParentStart="false"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="7dp"
                         />
             </RelativeLayout>
+            <ScrollView
+                    android:layout_width="fill_parent"
+                    android:layout_height="270dp"
+                    android:layout_below="@+id/relativeLayoutContent"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/scrollViewMensajes">
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/listMessages">
+                </LinearLayout>
+            </ScrollView>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contestar"
+                    android:id="@+id/answer"
+                    android:layout_below="@+id/scrollViewMensajes"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#008358"
+                    android:textSize="20dp"/>
 
         </RelativeLayout>
 
@@ -64,7 +87,4 @@
                     android:textIsSelectable="false"/>
         </RelativeLayout>
     </RelativeLayout>
-
-
-
 </RelativeLayout>

@@ -13,7 +13,7 @@ public class Message implements Parcelable{
     public boolean answer;
     public String pay_link;
     public String text;
-    public Date date;
+    public String date;
 
     public Message(){
 
@@ -25,7 +25,7 @@ public class Message implements Parcelable{
         answer = source.readByte()== 1;
         pay_link = source.readString();
         text= source.readString();
-        //date=source.readValue();
+        date=source.readString();
     }
 
     @Override
@@ -39,7 +39,7 @@ public class Message implements Parcelable{
         parcel.writeByte((byte) (answer ? 1 : 0));
         parcel.writeString(pay_link);
         parcel.writeString(text);
-        //parcel.writeValue(date);
+        parcel.writeString(date);
     }
 
     public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
