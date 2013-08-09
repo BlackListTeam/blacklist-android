@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 
@@ -71,7 +72,49 @@ public class TabHostActivity extends TabActivity {
 
         for(int i = 0; i<tabHost.getTabWidget().getChildCount();i++){
             tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.BLACK);
+            tabHost.getTabWidget().getChildAt(i).getLayoutParams().height = 40;
         }
+
+        LinearLayout.LayoutParams tab1=(LinearLayout.LayoutParams) getTabHost().getTabWidget().getChildAt(0).getLayoutParams();
+        LinearLayout.LayoutParams tab2=(LinearLayout.LayoutParams) getTabHost().getTabWidget().getChildAt(1).getLayoutParams();
+        LinearLayout.LayoutParams tab3=(LinearLayout.LayoutParams) getTabHost().getTabWidget().getChildAt(2).getLayoutParams();
+        LinearLayout.LayoutParams tab4=(LinearLayout.LayoutParams) getTabHost().getTabWidget().getChildAt(3).getLayoutParams();
+
+        tab1.topMargin=2;
+        tab2.topMargin=4;
+
+        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String s) {
+
+               int i = getTabHost().getCurrentTab();
+               if(i==0){
+                   /*TabHost.TabSpec events = getTabHost().newTabSpec("Events");
+                   events.setIndicator("", getResources().getDrawable(R.drawable.icon_events_tab));
+                   Intent photosIntent = new Intent(getParent(), EventsTabGroupActivity.class);
+                   events.setContent(photosIntent);*/
+               }
+               else if(i==1){
+                   /*TabHost.TabSpec events = getTabHost().newTabSpec("Messages");
+                   events.setIndicator("", getResources().getDrawable(R.drawable.icon_events_tab));
+                   Intent photosIntent = new Intent(getParent(), ListMessagesTabGroupActivity.class);
+                   events.setContent(photosIntent);*/
+               }
+               else if(i==2){
+                   /*TabHost.TabSpec events = getTabHost().newTabSpec("Code");
+                   events.setIndicator("", getResources().getDrawable(R.drawable.icon_events_tab));
+                   Intent photosIntent = new Intent(getParent(), CodeActivity.class);
+                   events.setContent(photosIntent);*/
+               }
+               else if(i==3){
+                   /*TabHost.TabSpec events = getTabHost().newTabSpec("Invite");
+                   events.setIndicator("", getResources().getDrawable(R.drawable.icon_events_tab));
+                   Intent photosIntent = new Intent(getParent(), InviteActivity.class);
+                   events.setContent(photosIntent);*/
+               }
+            }
+        });
+
     }
 
     @Override

@@ -1,86 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                xmlns:pj="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_events_intro"
+                android:background="@drawable/bkg"
                 android:focusableInTouchMode="false">
 
+<ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageViewBanner"
+        android:src="@drawable/logo_events_intro"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/logo"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"/>
+
+<RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/relativeLayoutGeneral"
+        android:layout_below="@+id/imageViewBanner">
+
     <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/contenidoBanner"
-            android:layout_centerVertical="false"
-            android:layout_centerHorizontal="true">
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageViewBanner"
-            android:src="@drawable/logo_events_intro"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:contentDescription="@string/logo"/>
+            android:layout_below="@+id/imageView"
+            android:background="@drawable/black_box_events_intro_background"
+            android:id="@+id/relativeLayoutBackGround"
+            android:layout_marginTop="-20dp">
 
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="250dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/contenidoBanner"
+                android:background="@drawable/black_box_events_intro_background"
+                android:layout_marginTop="20dp"
+                android:id="@+id/relativeLayoutBackGround">
+
+            <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical" >
+
+                <!--<cat.andreurm.blacklist.carousel.Carousel
+                        android:id="@+id/carousel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"/>-->
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
 
     <RelativeLayout
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/relativeLayoutBanner"
-            android:layout_below="@id/imageViewBanner"
-            android:layout_centerVertical="false"
-            android:layout_marginTop="80dp"
-            android:layout_centerHorizontal="true">
-
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView"
-                android:src="@drawable/box_titol_event"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:contentDescription="@string/logo"/>
-
+            android:id="@+id/imageView"
+            android:background="@drawable/black_box_tittle_events"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/logo">
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/proximo_evento"
                 android:id="@+id/textViewTituloEvent"
-                android:textColor="#ffffff"
-                android:textSize="14sp"
-                android:textIsSelectable="false"
+                android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true"/>
-
+                android:textColor="#ffffff"
+                android:textSize="14dp"
+                android:textIsSelectable="false"/>
     </RelativeLayout>
-
-
-
-
 </RelativeLayout>
 
-    <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="250dp"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/contenidoBanner"
-            android:layout_marginTop="20dp"
-            android:id="@+id/relativeLayoutBackGround">
 
-        <LinearLayout
-                      android:layout_width="fill_parent"
-                      android:layout_height="fill_parent"
-                      android:orientation="vertical" >
-
-            <!--<cat.andreurm.blacklist.carousel.Carousel
-                    android:id="@+id/carousel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"/>-->
-
-        </LinearLayout>
-
-    </RelativeLayout>
 
 </RelativeLayout>

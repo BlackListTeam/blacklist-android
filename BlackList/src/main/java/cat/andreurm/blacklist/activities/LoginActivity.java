@@ -36,7 +36,6 @@ public class LoginActivity extends Activity implements WebServiceCaller{
         u=new Utils(this);
         ws=new WebService(this);
 
-
         Typeface font = Typeface.createFromAsset(getAssets(), getString(R.string.bebas_neue));
 
         TextView txt = (TextView) findViewById(R.id.login_name);

@@ -1,5 +1,6 @@
 package cat.andreurm.blacklist.activities;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -69,6 +71,13 @@ public class ReservationActivity extends Activity implements WebServiceCaller {
 
         ImageView imageEvent= (ImageView) findViewById(R.id.textViewImageEvent);
 
+        buttonContacto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO Logica per a enviar el mail
+            }
+        });
+
         if(p.max_escorts==0){
             lAcompanantes.removeAllViews();
         }
@@ -100,6 +109,8 @@ public class ReservationActivity extends Activity implements WebServiceCaller {
                     }
                 }
             });
+
+
         }
         if(p.max_rooms==0){
             lHabitaciones.removeAllViews();
@@ -197,9 +208,24 @@ public class ReservationActivity extends Activity implements WebServiceCaller {
         final TextView numeroHabitaciones = (TextView) findViewById(R.id.edit_text_rooms);
         final TextView numeroAcompanantes = (TextView) findViewById(R.id.edit_text_acompanantes);
         r = new Reservation();
-        r.escorts = Integer.parseInt(numeroAcompanantes.getText().toString());
-        r.rooms = Integer.parseInt(numeroHabitaciones.getText().toString());
-        r.vip = vip.isChecked();
+        if(numeroAcompanantes!=null){
+            r.escorts = Integer.parseInt(numeroAcompanantes.getText().toString());
+        }
+        else{
+            r.escorts =0;
+        }
+        if(numeroHabitaciones!=null){
+            r.rooms = Integer.parseInt(numeroHabitaciones.getText().toString());
+        }
+        else{
+            r.rooms=0;
+        }
+        if(vip!=null){
+            r.vip = vip.isChecked();
+        }
+        else{
+            r.vip = false;
+        }
 
         AlertDialog.Builder dialog = new AlertDialog.Builder(getParent())
                 .setTitle(getString(R.string.warning))

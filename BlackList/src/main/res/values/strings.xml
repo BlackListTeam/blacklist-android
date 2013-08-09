@@ -98,11 +98,11 @@
         antes de la fiestas se tienen en cuenta como válidas.\n Si un miembro no es responsable en
         el uso de este servicio, puede ser penalizado con la imposibilidad de realizar futuras
         reservas y/o inactivación completa de su App \n Este servicio es necesario para el buen
-        funcionamiento de las fiestas y se debe usar responsablemente con afán de colaboración
-    </string>
+        funcionamiento de las fiestas y se debe usar responsablemente con afán de colaboración</string>
     <string name="evento_pasado">EVENTO PASADO</string>
     <string name="evento_futuro">EVENTO FUTURO</string>
     <string name="reservar">Reservar</string>
     <string name="cancelar">Cancelar</string>
+    <string name="title_activity_gallery">GalleryActivity</string>
 
 </resources>

@@ -106,9 +106,11 @@ public class TabGroupActivity extends ActivityGroup {
             manager.destroyActivity(mIdList.get(index), true);
             mIdList.remove(index); index--;
             String lastId = mIdList.get(index);
-            Intent lastIntent = manager.getActivity(lastId).getIntent();
-            Window newWindow = manager.startActivity(lastId, lastIntent);
-            setContentView(newWindow.getDecorView());
+            if(manager.getActivity(lastId)!=null){
+                Intent lastIntent = manager.getActivity(lastId).getIntent();
+                Window newWindow = manager.startActivity(lastId, lastIntent);
+                setContentView(newWindow.getDecorView());
+            }
         }
     }
     

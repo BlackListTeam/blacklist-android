@@ -129,8 +129,8 @@ public class EventInfoActivity extends Activity implements WebServiceCaller {
             return;
         }
         Reservation res= (Reservation) result.get("reservation");
-        if(res != null){
-            buttonReserva.setVisibility(View.INVISIBLE);
+        if(res == null && p.es_actual){
+            buttonReserva.setVisibility(View.VISIBLE);
         }
 
     }

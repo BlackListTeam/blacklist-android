@@ -12,20 +12,29 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
+import java.util.Hashtable;
+
 import cat.andreurm.blacklist.R;
 import cat.andreurm.blacklist.model.Party;
+import cat.andreurm.blacklist.model.Reservation;
+import cat.andreurm.blacklist.utils.Utils;
+import cat.andreurm.blacklist.utils.WebService;
+import cat.andreurm.blacklist.utils.WebServiceCaller;
 
-public class EventsPrecioActivity extends Activity {
+public class EventsPrecioActivity extends Activity implements WebServiceCaller {
 
     Button buttonSitio;
     Button buttonInfo;
     ImageButton buttonReserva;
     Party p;
+    WebService ws;
+    Utils u;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +42,11 @@ public class EventsPrecioActivity extends Activity {
         setContentView(R.layout.activity_events_precio);
 
         p = getIntent().getParcelableExtra("Party");
+
+        ws=new WebService(this);
+        u=new Utils(this);
+
+        ws.getCurrentReservation(u.getSessionId());
 
         TextView txtTitulo = (TextView) findViewById(R.id.textViewTituloEvent);
         Typeface font = Typeface.createFromAsset(getAssets(), getString(R.string.bebas_neue));
@@ -45,8 +59,8 @@ public class EventsPrecioActivity extends Activity {
         txtInfo.setMovementMethod(new ScrollingMovementMethod());
 
         buttonReserva = (ImageButton) findViewById(R.id.buttonReservar);
-        if(!p.es_actual){
-            buttonReserva.setVisibility(View.INVISIBLE);
+        if(p.es_actual){
+            buttonReserva.setVisibility(View.VISIBLE);
         }
 
         ImageView imageEvent= (ImageView) findViewById(R.id.textViewImageEvent);
@@ -93,5 +107,18 @@ public class EventsPrecioActivity extends Activity {
         getMenuInflater().inflate(R.menu.events_precio, menu);
         return true;
     }
-    
+
+    @Override
+    public void webServiceReady(Hashtable result) {
+        Boolean auth_error= (Boolean) result.get("authError");
+        if(auth_error){
+            Toast.makeText(getApplicationContext(), (String) result.get("errorMessage"), Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this,LoginActivity.class));
+            return;
+        }
+        Reservation res= (Reservation) result.get("reservation");
+        if(res == null && p.es_actual){
+            buttonReserva.setVisibility(View.VISIBLE);
+        }
+    }
 }
