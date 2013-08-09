@@ -140,6 +140,7 @@
                 android:background="@drawable/button_reservar"
                 android:layout_below="@+id/relativeLayoutBackGround"
                 android:layout_centerHorizontal="true"
+                android:visibility="invisible"
                 android:contentDescription="buttonReservar"
                 android:layout_marginTop="-15dp"/>
     </RelativeLayout>

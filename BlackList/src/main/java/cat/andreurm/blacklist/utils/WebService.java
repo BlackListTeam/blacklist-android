@@ -308,6 +308,9 @@ public class WebService {
 
                 ret.put("authError",jsonObject.getJSONObject("response").getInt("authError") !=0);
                 ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
+
+                Log.v("FINAL WEBSERVICE ","SIZE: "+parties.size());
+
                 ((WebServiceCaller) pare).webServiceReady(ret);
 
             } catch (Exception e) {

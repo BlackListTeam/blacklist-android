@@ -29,6 +29,8 @@ public class Party implements Parcelable {
     public Boolean vip_allowed;
     public Boolean es_actual;
 
+    public int id_view;
+
     public Party() {}
 
     private Party(Parcel parcel) {

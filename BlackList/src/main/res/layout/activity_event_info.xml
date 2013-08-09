@@ -142,6 +142,7 @@
                 android:layout_below="@+id/relativeLayoutBackGround"
                 android:layout_centerHorizontal="true"
                 android:contentDescription="buttonReservar"
+                android:visibility="invisible"
                 android:layout_marginTop="-15dp"/>
     </RelativeLayout>
 

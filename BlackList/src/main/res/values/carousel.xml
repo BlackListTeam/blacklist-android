@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Carousel">
+        <attr name="android_gravity" format="integer"/>
+        <attr name="android_animationDuration" format="integer"/>
+        <attr name="spacing" format="integer"/>
+        <attr name="unselectedAlpha" format="integer"/>
+    </declare-styleable>
+</resources>
