@@ -1,6 +1,7 @@
 package cat.andreurm.blacklist.activities;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -38,6 +39,7 @@ public class ListMessagesActivity extends Activity implements WebServiceCaller {
     LinearLayout ll;
     Boolean delete=false;
     Hashtable<String,MessageThread> message_threads=null;
+    private ProgressDialog pdl = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +52,22 @@ public class ListMessagesActivity extends Activity implements WebServiceCaller {
         message_threads=new Hashtable<String, MessageThread>();
 
 
+
         TextView txtTitulo = (TextView) findViewById(R.id.textViewTituloMensajes);
         Typeface font = Typeface.createFromAsset(getAssets(), getString(R.string.bebas_neue));
         txtTitulo.setTypeface(font);
         txtTitulo.setPaintFlags(txtTitulo.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);
 
+        pdl= ProgressDialog.show(getParent(), null, getString(R.string.loading), true, false);
+
+        ws.getMessages(u.getSessionId());
+    }
+
+    @Override
+    protected void onNewIntent(Intent i){
+        ll.removeAllViews();
+        message_threads=new Hashtable<String, MessageThread>();
+        pdl= ProgressDialog.show(getParent(), null, getString(R.string.loading), true, false);
         ws.getMessages(u.getSessionId());
     }
 
@@ -72,6 +85,7 @@ public class ListMessagesActivity extends Activity implements WebServiceCaller {
         Boolean auth_error= (Boolean) result.get("authError");
 
         if(auth_error){
+            pdl.dismiss();
             Toast.makeText(getApplicationContext(), (String) result.get("errorMessage"), Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this,LoginActivity.class));
             return;
@@ -115,7 +129,7 @@ public class ListMessagesActivity extends Activity implements WebServiceCaller {
         }
 
         delete=false;
-
+        pdl.dismiss();
 
     }
 
@@ -239,8 +253,6 @@ public class ListMessagesActivity extends Activity implements WebServiceCaller {
             i.putExtra("message_thread", (Parcelable) message_threads.get(Integer.toString(message_id)));
             TabGroupActivity parentActivity = (TabGroupActivity)getParent();
             parentActivity.startChildActivity("MessageInfoActivity", i);
-
-            Log.d("AND-id",Integer.toString(message_id));
         }
     }
 
@@ -263,6 +275,7 @@ public class ListMessagesActivity extends Activity implements WebServiceCaller {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             delete=true;
+                            pdl= ProgressDialog.show(getParent(), null, getString(R.string.loading), true, false);
                             ws.deleteMessage(message_id, u.getSessionId());
                         }
 

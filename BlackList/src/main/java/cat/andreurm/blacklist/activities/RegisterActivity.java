@@ -1,5 +1,6 @@
 package cat.andreurm.blacklist.activities;
 
+import android.app.ProgressDialog;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -28,6 +29,7 @@ public class RegisterActivity extends Activity implements WebServiceCaller {
     EditText register_name;
     EditText register_email;
     EditText register_birth;
+    ProgressDialog pdl=null;
 
 
 
@@ -118,7 +120,7 @@ public class RegisterActivity extends Activity implements WebServiceCaller {
         user.name=name;
         user.email=email;
         user.birth_year=birth_date;
-
+        pdl= ProgressDialog.show(this, null, getString(R.string.loading), true, false);
         ws.addUser(user,u.retrivePromoterCode());
     }
 
@@ -132,6 +134,7 @@ public class RegisterActivity extends Activity implements WebServiceCaller {
     public void webServiceReady(Hashtable result) {
         Boolean auth_error= (Boolean) result.get("authError");
         if(auth_error){
+            pdl.dismiss();
             Toast.makeText(getApplicationContext(), getString(R.string.ws_connection_error), Toast.LENGTH_SHORT).show();
             return;
         }
@@ -145,6 +148,7 @@ public class RegisterActivity extends Activity implements WebServiceCaller {
         }else{
             Toast.makeText(getApplicationContext(), (CharSequence) result.get("errorMessage"), Toast.LENGTH_SHORT).show();
         }
+        pdl.dismiss();
     }
 
     @Override

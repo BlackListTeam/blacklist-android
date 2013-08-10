@@ -1,5 +1,6 @@
 package cat.andreurm.blacklist.activities;
 
+import android.app.ProgressDialog;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -27,6 +28,7 @@ public class LoginActivity extends Activity implements WebServiceCaller{
 
     Utils u;
     WebService ws;
+    ProgressDialog pdl=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,7 @@ public class LoginActivity extends Activity implements WebServiceCaller{
     public void login (View view){
         EditText input_name= (EditText) findViewById(R.id.login_name);
         EditText input_pass= (EditText) findViewById(R.id.login_password);
+        pdl= ProgressDialog.show(this, null, getString(R.string.loading), true, false);
         ws.login(input_name.getText().toString(), input_pass.getText().toString());
     }
 
@@ -76,6 +79,7 @@ public class LoginActivity extends Activity implements WebServiceCaller{
 
         Boolean auth_error= (Boolean) result.get("authError");
         if(auth_error){
+            pdl.dismiss();
             Toast.makeText(getApplicationContext(), (String) result.get("errorMessage"), Toast.LENGTH_SHORT).show();
             return;
         }
@@ -89,6 +93,7 @@ public class LoginActivity extends Activity implements WebServiceCaller{
         }else{
             Toast.makeText(getApplicationContext(), (String) result.get("errorMessage"), Toast.LENGTH_SHORT).show();
         }
+        pdl.dismiss();
     }
 
     @Override

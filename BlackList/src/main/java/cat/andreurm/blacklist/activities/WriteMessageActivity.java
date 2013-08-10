@@ -1,5 +1,6 @@
 package cat.andreurm.blacklist.activities;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -37,12 +38,13 @@ public class WriteMessageActivity extends Activity implements OnTouchListener, W
     Utils u;
     WebService ws;
     int mt_id=0;
+    ProgressDialog pdl=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getWindow().setSoftInputMode(
-                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_write_message);
 
@@ -65,9 +67,6 @@ public class WriteMessageActivity extends Activity implements OnTouchListener, W
         });
 
 
-
-
-
         msj = (EditText) findViewById(R.id.editTextMessage);
 
         layout = (RelativeLayout)findViewById(R.id.relativeLayoutGeneral);
@@ -81,12 +80,9 @@ public class WriteMessageActivity extends Activity implements OnTouchListener, W
     protected void onNewIntent(Intent i){
         Bundle b = i.getExtras();
         mt_id = b.getInt("mt_id",0);
+
+        msj.clearFocus();
         msj.setText(null);
-        //layout.requestFocus();
-        //TODO
-        /*msj.setSelected(false);
-        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(msj.getWindowToken(), 0);*/
     }
 
     @Override
@@ -100,8 +96,9 @@ public class WriteMessageActivity extends Activity implements OnTouchListener, W
     }
 
     public void sendMessage(View v){
+        pdl= ProgressDialog.show(getParent(), null, getString(R.string.loading), true, false);
         if(mt_id!=0){
-            Log.d("AND-MSJ", "REPLY");
+            ws.replyMessage(msj.getText().toString(), mt_id, u.getSessionId());
         }else{
             ws.addMessage(msj.getText().toString(),u.getSessionId());
         }
@@ -114,6 +111,7 @@ public class WriteMessageActivity extends Activity implements OnTouchListener, W
         Boolean auth_error= (Boolean) result.get("authError");
 
         if(auth_error){
+            pdl.dismiss();
             Toast.makeText(getApplicationContext(), (String) result.get("errorMessage"), Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this,LoginActivity.class));
             return;
@@ -128,6 +126,7 @@ public class WriteMessageActivity extends Activity implements OnTouchListener, W
         }else{
             Toast.makeText(getApplicationContext(), (String) result.get("errorMessage"), Toast.LENGTH_SHORT).show();
         }
+        pdl.dismiss();
     }
 
     @Override

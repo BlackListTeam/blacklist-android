@@ -74,7 +74,16 @@ public class ReservationActivity extends Activity implements WebServiceCaller {
         buttonContacto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO Logica per a enviar el mail
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType(getString(R.string.email_mime_type));
+                i.putExtra(Intent.EXTRA_EMAIL  , new String[]{getString(R.string.email_to)});
+                i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.contact));
+                i.putExtra(Intent.EXTRA_TEXT   , getString(R.string.empty_string));
+                try {
+                    startActivity(Intent.createChooser(i, getString(R.string.email_chooser_title)));
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(ReservationActivity.this, getString(R.string.no_email_error), Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -177,12 +186,6 @@ public class ReservationActivity extends Activity implements WebServiceCaller {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.reservation, menu);
-        return true;
-    }
 
     @Override
     public void webServiceReady(Hashtable result) {

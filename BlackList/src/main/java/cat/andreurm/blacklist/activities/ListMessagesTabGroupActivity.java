@@ -12,5 +12,10 @@ public class ListMessagesTabGroupActivity extends TabGroupActivity {
         super.onCreate(savedInstanceState);
         startChildActivity("Principal", new Intent(this, ListMessagesActivity.class));
     }
+
+    @Override
+    public void  onBackPressed  () {
+
+    }
     
 }

@@ -1,6 +1,7 @@
 package cat.andreurm.blacklist.activities;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -30,6 +31,7 @@ public class CodeActivity extends Activity implements WebServiceCaller {
     WebService ws;
     Utils u;
     Boolean delete;
+    private ProgressDialog pdl = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class CodeActivity extends Activity implements WebServiceCaller {
         ws=new WebService(this);
         u=new Utils(this);
         delete=false;
+
 
         TextView txtPartyName= (TextView) findViewById(R.id.textViewPartyName);
         TextView txtReservaRealizadaEvento= (TextView) findViewById(R.id.textViewReservaRealizada);
@@ -55,6 +58,9 @@ public class CodeActivity extends Activity implements WebServiceCaller {
         txtTituloCodigoAutorizacion.setTypeface(font);
         txtTituloCodigoAutorizacion.setPaintFlags(txtTituloCodigoAutorizacion.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);
 
+
+        pdl= ProgressDialog.show(this, null, getString(R.string.loading), true, false);
+
         ws.getCurrentReservation(u.getSessionId());
     }
 
@@ -63,6 +69,7 @@ public class CodeActivity extends Activity implements WebServiceCaller {
 
         Boolean auth_error= (Boolean) result.get("authError");
         if(auth_error){
+            pdl.dismiss();
             Toast.makeText(getApplicationContext(), (String) result.get("errorMessage"), Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this,LoginActivity.class));
             return;
@@ -153,7 +160,7 @@ public class CodeActivity extends Activity implements WebServiceCaller {
                         .show();
             }
         }
-
+        pdl.dismiss();
         delete=false;
     }
 
@@ -170,6 +177,7 @@ public class CodeActivity extends Activity implements WebServiceCaller {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         delete=true;
+                        pdl= ProgressDialog.show(CodeActivity.this, null, getString(R.string.loading), true, false);
                         ws.deleteReservation(u.getSessionId());
                     }
 

@@ -351,9 +351,6 @@ public class MessageInfoActivity extends Activity{
         return (ScrollView)findViewById(R.id.scrollViewMensajes);
     }
 
-    public void answer(){
-
-    }
 
     private String getPrettyDate(String s_date){
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");

@@ -111,5 +111,6 @@
     <string name="reservar">Reservar</string>
     <string name="cancelar">Cancelar</string>
     <string name="title_activity_gallery">GalleryActivity</string>
+    <string name="loading">Procesando...</string>
 
 </resources>

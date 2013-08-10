@@ -1,10 +1,12 @@
 package cat.andreurm.blacklist.activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,6 +23,7 @@ public class PromoterCodeActivity extends Activity implements WebServiceCaller {
 
     WebService ws;
     Utils u;
+    ProgressDialog pdl=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +44,19 @@ public class PromoterCodeActivity extends Activity implements WebServiceCaller {
         txt.setPaintFlags(txt.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        if(u.userAllowedToUseApp()){
+            startActivity(new Intent(this,LoginActivity.class));
+        }
+    }
+
+
     public void validateCode(View view){
         EditText editText = (EditText) findViewById(R.id.promoInput);
         String message = editText.getText().toString();
+        pdl= ProgressDialog.show(this, null, getString(R.string.loading), true, false);
         ws.validatePromoterCode(message);
     }
 
@@ -52,6 +65,7 @@ public class PromoterCodeActivity extends Activity implements WebServiceCaller {
 
         Boolean auth_error= (Boolean) result.get("authError");
         if(auth_error){
+            pdl.dismiss();
             Toast.makeText(getApplicationContext(), getString(R.string.ws_connection_error), Toast.LENGTH_SHORT).show();
             return;
         }
@@ -66,6 +80,7 @@ public class PromoterCodeActivity extends Activity implements WebServiceCaller {
             String strJunk=getString(R.string.error_promo_code);
             Toast.makeText(getApplicationContext(), strJunk, Toast.LENGTH_SHORT).show();
         }
+        pdl.dismiss();
     }
 
     @Override
