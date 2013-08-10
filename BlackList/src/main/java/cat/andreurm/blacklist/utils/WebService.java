@@ -758,7 +758,8 @@ public class WebService {
                 ret.put("authError",(jsonObject.getJSONObject("response").getInt("authError") !=0));
                 ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
 
-                //TODO:Fer el parsing
+                ret.put("new_messages",jsonObject.getJSONObject("response").getInt("new_messages"));
+
 
                 ((WebServiceCaller) pare).webServiceReady(ret);
 

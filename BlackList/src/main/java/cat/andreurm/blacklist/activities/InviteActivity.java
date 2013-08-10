@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.readystatesoftware.viewbadger.BadgeView;
+
 import java.util.Hashtable;
 
 import cat.andreurm.blacklist.R;

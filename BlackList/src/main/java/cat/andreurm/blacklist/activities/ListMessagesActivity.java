@@ -2,6 +2,7 @@ package cat.andreurm.blacklist.activities;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.app.TabActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -22,6 +23,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.readystatesoftware.viewbadger.BadgeView;
+
 import java.util.ArrayList;
 import java.util.Hashtable;
 
@@ -40,6 +43,7 @@ public class ListMessagesActivity extends Activity implements WebServiceCaller {
     Boolean delete=false;
     Hashtable<String,MessageThread> message_threads=null;
     private ProgressDialog pdl = null;
+    Boolean loading_msjs=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +56,6 @@ public class ListMessagesActivity extends Activity implements WebServiceCaller {
         message_threads=new Hashtable<String, MessageThread>();
 
 
-
         TextView txtTitulo = (TextView) findViewById(R.id.textViewTituloMensajes);
         Typeface font = Typeface.createFromAsset(getAssets(), getString(R.string.bebas_neue));
         txtTitulo.setTypeface(font);
@@ -60,6 +63,13 @@ public class ListMessagesActivity extends Activity implements WebServiceCaller {
 
         pdl= ProgressDialog.show(getParent(), null, getString(R.string.loading), true, false);
 
+        TabGroupActivity tabs = (TabGroupActivity) getParent();
+        TabHostActivity target = (TabHostActivity) tabs.getParent();
+        if(target.badge != null){
+            target.badge.hide();
+        }
+
+        loading_msjs=true;
         ws.getMessages(u.getSessionId());
     }
 
@@ -68,6 +78,7 @@ public class ListMessagesActivity extends Activity implements WebServiceCaller {
         ll.removeAllViews();
         message_threads=new Hashtable<String, MessageThread>();
         pdl= ProgressDialog.show(getParent(), null, getString(R.string.loading), true, false);
+        loading_msjs=true;
         ws.getMessages(u.getSessionId());
     }
 
@@ -108,8 +119,8 @@ public class ListMessagesActivity extends Activity implements WebServiceCaller {
                     })
                     .show();
 
-
-        }else{
+            pdl.dismiss();
+        }else if(loading_msjs){
             ArrayList<MessageThread> res= (ArrayList<MessageThread>) result.get("messages");
 
             if(res != null){
@@ -126,10 +137,13 @@ public class ListMessagesActivity extends Activity implements WebServiceCaller {
                         .setPositiveButton(getString(R.string.ok), null)
                         .show();
             }
+            ws.readMessages(u.getSessionId());
+            pdl.dismiss();
         }
 
         delete=false;
-        pdl.dismiss();
+        loading_msjs=false;
+
 
     }
 

@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.readystatesoftware.viewbadger.BadgeView;
+
 import java.net.URL;
 import java.util.Hashtable;
 

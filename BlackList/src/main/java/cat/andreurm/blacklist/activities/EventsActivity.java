@@ -30,6 +30,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
+import com.readystatesoftware.viewbadger.BadgeView;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -59,6 +60,7 @@ public class EventsActivity extends Activity implements WebServiceCaller {
     WebService ws;
     Utils u;
     ArrayList<Party> parties;
+    Boolean gettingBadges=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,8 @@ public class EventsActivity extends Activity implements WebServiceCaller {
 
         ws=new WebService(this);
         u=new Utils(this);
+
+
 
         ws.getPartyCovers(u.getSessionId());
     }
@@ -138,49 +142,79 @@ public class EventsActivity extends Activity implements WebServiceCaller {
         rL.addView(carousel);
     }
 
+    private void badges(int new_msjs){
+        if(new_msjs>0){
+            TabGroupActivity tabs = (TabGroupActivity) getParent();
+            TabHostActivity target = (TabHostActivity) tabs.getParent();
+            target.badge= new BadgeView(getParent(), target.getTabWidget(),1);
+            target.badge.setText(Integer.toString(new_msjs));
+            target.badge.show();
+
+        }
+    }
+
     @Override
     public void webServiceReady(Hashtable result) {
 
-        parties= (ArrayList<Party>) result.get("parties");
-        if(!parties.isEmpty()){
-            try {
+        Boolean auth_error= (Boolean) result.get("authError");
 
-                int id_actual=0;
-                for(Party p:parties){
-                    p.es_actual = false;
-                    Date dateParty = null;
-                    try {
-                        dateParty = dateFormat.parse(p.date);
-                    } catch (ParseException e) {
-                        Log.e("EventInfoActivity","Error de Format en fechas");
-                        e.printStackTrace();
+        if(auth_error){
+
+            Toast.makeText(getApplicationContext(), (String) result.get("errorMessage"), Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this,LoginActivity.class));
+            return;
+        }
+
+        if(!gettingBadges){
+            parties= (ArrayList<Party>) result.get("parties");
+            if(!parties.isEmpty()){
+                try {
+
+                    int id_actual=0;
+                    for(Party p:parties){
+                        p.es_actual = false;
+                        Date dateParty = null;
+                        try {
+                            dateParty = dateFormat.parse(p.date);
+                        } catch (ParseException e) {
+                            Log.e("EventInfoActivity","Error de Format en fechas");
+                            e.printStackTrace();
+                        }
+                        //La primera fiesta que sea después de la fecha actual le ponemos la variable es actual a true
+                        if(dateParty.after(new Date())&&id_actual==0){
+                            id_actual = p.party_id;
+                            p.es_actual = true;
+                        }
                     }
-                    //La primera fiesta que sea después de la fecha actual le ponemos la variable es actual a true
-                    if(dateParty.after(new Date())&&id_actual==0){
-                        id_actual = p.party_id;
-                        p.es_actual = true;
-                    }
+
+                    init();
+
+                }
+                catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), getString(R.string.img_download_error), Toast.LENGTH_SHORT).show();
                 }
 
-                init();
-            }
-            catch (Exception e) {
-                Toast.makeText(getApplicationContext(), getString(R.string.img_download_error), Toast.LENGTH_SHORT).show();
-            }
+            }else{
 
+                new AlertDialog.Builder(this)
+                        .setTitle(getString(R.string.warning))
+                        .setMessage(getString(R.string.no_active_reservation))
+                        .setPositiveButton(getString(R.string.see_parties), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                startActivity(new Intent(getBaseContext(), TabHostActivity.class));
+                            }
+                        })
+                        .show();
+            }
+            gettingBadges=true;
+            ws.getNewMessages(u.getSessionId());
         }else{
-
-            new AlertDialog.Builder(this)
-                    .setTitle(getString(R.string.warning))
-                    .setMessage(getString(R.string.no_active_reservation))
-                    .setPositiveButton(getString(R.string.see_parties), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            startActivity(new Intent(getBaseContext(), TabHostActivity.class));
-                        }
-                    })
-                    .show();
+            gettingBadges=false;
+            badges((Integer)result.get("new_messages"));
         }
+
+
     }
 
     public class ImageAdapter extends BaseAdapter {

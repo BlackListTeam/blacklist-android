@@ -19,6 +19,8 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.readystatesoftware.viewbadger.BadgeView;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -112,6 +114,8 @@ public class MessageInfoActivity extends Activity{
                 parentActivity.startChildActivity("WriteMessageActivity", i);
             }
         });
+
+
 
         printList();
         scrollToBottom();

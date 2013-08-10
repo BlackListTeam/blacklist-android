@@ -18,6 +18,10 @@ import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.readystatesoftware.viewbadger.BadgeView;
+
+import org.apache.http.message.BasicRequestLine;
+
 import cat.andreurm.blacklist.R;
 
 public class TabHostActivity extends TabActivity {
@@ -31,6 +35,8 @@ public class TabHostActivity extends TabActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     SectionsPagerAdapter mSectionsPagerAdapter;
+
+    BadgeView badge=null;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -52,6 +58,7 @@ public class TabHostActivity extends TabActivity {
         TabHost.TabSpec messages = tabHost.newTabSpec("Messages");
         messages.setIndicator("", getResources().getDrawable(R.drawable.icon_messages_tab));
         Intent songsIntent = new Intent(this, ListMessagesTabGroupActivity.class);
+        songsIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         messages.setContent(songsIntent);
 
         TabHost.TabSpec code = tabHost.newTabSpec("Code");
