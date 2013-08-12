@@ -2,18 +2,21 @@ package cat.andreurm.blacklist.activities;
 
 import android.app.AlertDialog;
 import android.app.LoaderManager;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Paint;
+import android.graphics.Point;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +33,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.readystatesoftware.viewbadger.BadgeView;
 
 import java.io.InputStream;
@@ -61,6 +65,7 @@ public class EventsActivity extends Activity implements WebServiceCaller {
     Utils u;
     ArrayList<Party> parties;
     Boolean gettingBadges=false;
+    ProgressDialog pdl=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -243,10 +248,29 @@ public class EventsActivity extends Activity implements WebServiceCaller {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View view = convertView;
-            Log.v("LOG", "PARTIES   "+position+"   "+parties.size());
             if (view == null) {
+
+
                 view = LayoutInflater.from(mContext).inflate(R.layout.carousel_item, parent, false);
-                view.setLayoutParams(new Carousel.LayoutParams(150, 150));
+                Display display = getWindowManager().getDefaultDisplay();
+                int width = display.getWidth();
+                Log.v("WIDTH VIEW","Width "+width);
+                if(width<350){
+                    view.setLayoutParams(new Carousel.LayoutParams(150, 150));
+                }
+                else if(width<400){
+                        view.setLayoutParams(new Carousel.LayoutParams(200, 200));
+                }
+                else if(width<500){
+                    view.setLayoutParams(new Carousel.LayoutParams(250, 250));
+                }
+                else if(width<600){
+                    view.setLayoutParams(new Carousel.LayoutParams(350, 350));
+                }
+                else{
+                    Log.v("WIDTH VIEW","Width2 "+width);
+                    view.setLayoutParams(new Carousel.LayoutParams(400, 400));
+                }
                 ViewHolder holder = new ViewHolder();
                 holder.imageView = (ImageView)view.findViewById(R.id.itemImage);
                 view.setTag(holder);
@@ -257,7 +281,7 @@ public class EventsActivity extends Activity implements WebServiceCaller {
 
             parties.get(position).id_view = position;
 
-            DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).build();
+            DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).imageScaleType(ImageScaleType.EXACTLY_STRETCHED).build();
             ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext()).defaultDisplayImageOptions(defaultOptions).build();
             ImageLoader.getInstance().init(config);
 
@@ -265,22 +289,33 @@ public class EventsActivity extends Activity implements WebServiceCaller {
             ImageLoader.getInstance().displayImage(parties.get(position).cover, holder.imageView,defaultOptions, new ImageLoadingListener() {
                 @Override
                 public void onLoadingStarted(String imageUri, View view) {
-
+                    if(pdl==null){
+                        pdl= ProgressDialog.show(getParent(), null, getString(R.string.loading), true, false);
+                    }
+                    else if(!pdl.isShowing()){
+                        pdl= ProgressDialog.show(getParent(), null, getString(R.string.loading), true, false);
+                    }
                 }
 
                 @Override
                 public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-
+                    if(pdl.isShowing()){
+                        pdl.dismiss();
+                    }
                 }
 
                 @Override
                 public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-
+                    if(pdl.isShowing()){
+                        pdl.dismiss();
+                    }
                 }
 
                 @Override
                 public void onLoadingCancelled(String imageUri, View view) {
-
+                    if(pdl.isShowing()){
+                        pdl.dismiss();
+                    }
                 }
             });
             holder.imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
