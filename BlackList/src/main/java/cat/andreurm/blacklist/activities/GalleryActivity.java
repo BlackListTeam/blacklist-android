@@ -50,6 +50,13 @@ public class GalleryActivity extends Activity {
 
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        ((EventsTabGroupActivity)getParent()).back_id=3;
+        ((EventsTabGroupActivity)getParent()).p=this.p;
+    }
+
     private void init()
     {
         carousel = new Carousel(this);

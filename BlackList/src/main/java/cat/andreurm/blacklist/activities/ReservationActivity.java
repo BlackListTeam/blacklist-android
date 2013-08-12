@@ -183,6 +183,13 @@ public class ReservationActivity extends Activity implements WebServiceCaller {
 
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        ((EventsTabGroupActivity)getParent()).back_id=3;
+        ((EventsTabGroupActivity)getParent()).p=this.p;
+    }
+
 
     @Override
     public void webServiceReady(Hashtable result) {
