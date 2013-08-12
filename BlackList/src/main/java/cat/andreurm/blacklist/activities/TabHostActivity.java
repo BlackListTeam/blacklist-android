@@ -3,7 +3,6 @@ package cat.andreurm.blacklist.activities;
 import java.util.Locale;
 
 import android.annotation.TargetApi;
-import android.app.LocalActivityManager;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,16 +13,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.readystatesoftware.viewbadger.BadgeView;
-
-import org.apache.http.message.BasicRequestLine;
 
 import cat.andreurm.blacklist.R;
 
@@ -85,13 +80,11 @@ public class TabHostActivity extends TabActivity {
 
         for(int i = 0; i<tabHost.getTabWidget().getChildCount();i++){
             tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.BLACK);
-            tabHost.getTabWidget().getChildAt(i).getLayoutParams().height = 60;
             tabHost.getTabWidget().getChildAt(i).setBackground(getResources().getDrawable(R.drawable.bg_menu));
         }
 
         tabHost.getTabWidget().setStripEnabled(false);
         tabHost.getTabWidget().setPadding(0,0,0,0);
-
     }
 
     /**
