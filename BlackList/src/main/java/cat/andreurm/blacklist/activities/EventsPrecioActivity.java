@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.app.Activity;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -59,8 +60,8 @@ public class EventsPrecioActivity extends Activity implements WebServiceCaller {
         txtInfo.setMovementMethod(new ScrollingMovementMethod());
 
         buttonReserva = (ImageButton) findViewById(R.id.buttonReservar);
-        if(p.es_actual){
-            buttonReserva.setVisibility(View.VISIBLE);
+        if(!p.es_actual){
+            buttonReserva.setVisibility(View.INVISIBLE);
         }
 
         ImageView imageEvent= (ImageView) findViewById(R.id.textViewImageEvent);
@@ -110,6 +111,7 @@ public class EventsPrecioActivity extends Activity implements WebServiceCaller {
 
     @Override
     public void webServiceReady(Hashtable result) {
+        Log.v("Dins del WBS", "DINS");
         Boolean auth_error= (Boolean) result.get("authError");
         if(auth_error){
             Toast.makeText(getApplicationContext(), (String) result.get("errorMessage"), Toast.LENGTH_SHORT).show();
@@ -118,6 +120,7 @@ public class EventsPrecioActivity extends Activity implements WebServiceCaller {
         }
         Reservation res= (Reservation) result.get("reservation");
         if(res == null && p.es_actual){
+            Log.v("Dins del WBS", "DINS DEL IF "+res+"    "+p.es_actual);
             buttonReserva.setVisibility(View.VISIBLE);
         }
     }

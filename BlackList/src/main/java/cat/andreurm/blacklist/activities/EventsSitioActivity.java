@@ -305,7 +305,6 @@ public class EventsSitioActivity extends android.support.v4.app.FragmentActivity
 
         @Override
         public int getCount() {
-            Log.v("RELATIVE LAYOUT2","   "+p.gallery.length);
             return musicCover.length;
             //return p.gallery.length;
         }
