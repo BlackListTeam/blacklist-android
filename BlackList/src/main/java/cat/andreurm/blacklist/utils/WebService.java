@@ -189,14 +189,14 @@ public class WebService {
 
 
 
-    //TODO: Adaptar per push
-    public void login(String name, String password){
+
+    public void login(String name, String password, String gcm_token){
         try {
             URI uri = new URI(
                     WS_PROTOCOL,
                     WS_HOST,
                     WS_PATH+"login",
-                    "name="+name+"&password="+password,
+                    "name="+name+"&password="+password+"&gcm_token="+gcm_token,
                     null);
 
             Object[] call={uri.toASCIIString()};
@@ -422,7 +422,7 @@ public class WebService {
 
                 ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
 
-                //TODO: fer El parsing
+
 
                 ((WebServiceCaller) pare).webServiceReady(ret);
 
@@ -809,7 +809,7 @@ public class WebService {
                 ret.put("authError",(jsonObject.getJSONObject("response").getInt("authError") !=0));
                 ret.put("errorMessage",jsonObject.getJSONObject("response").getString("errorMessage"));
 
-                //TODO:Fer el parsing
+
 
                 ((WebServiceCaller) pare).webServiceReady(ret);
 

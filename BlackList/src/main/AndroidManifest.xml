@@ -182,6 +182,8 @@
             android:name=".activities.GalleryActivity"
             android:label="@string/title_activity_gallery" >
         </activity>
+
+
         <!--<receiver
                 android:name=".utils.GcmBroadcastReceiver"
                 android:permission="com.google.android.c2dm.permission.SEND" >
@@ -206,6 +208,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <permission android:name="cat.andreurm.blacklist.permission.C2D_MESSAGE"
                 android:protectionLevel="signature" />
