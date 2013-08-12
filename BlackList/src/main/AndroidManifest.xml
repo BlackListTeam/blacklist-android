@@ -184,15 +184,15 @@
         </activity>
 
 
-        <!--<receiver
+        <receiver
                 android:name=".utils.GcmBroadcastReceiver"
                 android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="com.example.gcm" />
+                <category android:name="cat.andreurm.blacklist" />
             </intent-filter>
         </receiver>
-        <service android:name=".MyIntentService" />-->
+        <!--<service android:name=".MyIntentService" />-->
 
     </application>
 
