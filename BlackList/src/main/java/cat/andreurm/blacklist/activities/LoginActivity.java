@@ -71,7 +71,7 @@ public class LoginActivity extends Activity implements WebServiceCaller{
         EditText input_name= (EditText) findViewById(R.id.login_name);
         EditText input_pass= (EditText) findViewById(R.id.login_password);
         pdl= ProgressDialog.show(this, null, getString(R.string.loading), true, false);
-        ws.login(input_name.getText().toString(), input_pass.getText().toString());
+        ws.login(input_name.getText().toString(), input_pass.getText().toString(),"543");
     }
 
     @Override

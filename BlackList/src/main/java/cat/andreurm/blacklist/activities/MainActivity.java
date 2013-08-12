@@ -52,7 +52,7 @@ public class MainActivity extends Activity implements WebServiceCaller {
 
         u=new User();
         et= (EditText) findViewById(R.id.txtLat);
-        ws.login(et.getText().toString(),"1986");
+        //ws.login(et.getText().toString(),"1986");
         //ws.getPartyCovers("sessionID");
     }
 

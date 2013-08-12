@@ -103,11 +103,11 @@ public class EventsPrecioActivity extends Activity implements WebServiceCaller {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.events_precio, menu);
-        return true;
+    protected void onResume(){
+        super.onResume();
+        ((EventsTabGroupActivity)getParent()).back_id=1;
     }
+
 
     @Override
     public void webServiceReady(Hashtable result) {
@@ -124,4 +124,5 @@ public class EventsPrecioActivity extends Activity implements WebServiceCaller {
             buttonReserva.setVisibility(View.VISIBLE);
         }
     }
+
 }

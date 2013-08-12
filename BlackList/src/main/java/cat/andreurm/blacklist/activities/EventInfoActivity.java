@@ -112,6 +112,12 @@ public class EventInfoActivity extends Activity implements WebServiceCaller {
 
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        ((EventsTabGroupActivity)getParent()).back_id=1;
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

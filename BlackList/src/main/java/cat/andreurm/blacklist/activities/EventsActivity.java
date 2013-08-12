@@ -85,6 +85,12 @@ public class EventsActivity extends Activity implements WebServiceCaller {
         ws.getPartyCovers(u.getSessionId());
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        ((EventsTabGroupActivity)getParent()).back_id=0;
+    }
+
     private void init()
     {
         carousel = new Carousel(this);

@@ -186,7 +186,14 @@ public class EventsSitioActivity extends android.support.v4.app.FragmentActivity
         });
     }
 
+    @Override
+    protected void onResume(){
+        super.onResume();
+        ((EventsTabGroupActivity)getParent()).back_id=1;
+    }
+
     private void showCountdown(RelativeLayout r, Date location_date){
+        ((EventsTabGroupActivity)getParent()).back_id=2;
         Date currentDate = new Date();
         long numericalDifference = location_date.getTime() - currentDate.getTime();
         numericalDifference = numericalDifference / 1000;
@@ -224,6 +231,8 @@ public class EventsSitioActivity extends android.support.v4.app.FragmentActivity
     }
 
     private void showMap(RelativeLayout r, float latitude, float longitude,String address){
+        ((EventsTabGroupActivity)getParent()).back_id=2;
+        buttonReserva.setVisibility(View.GONE);
         //Eliminem totes les vistes que hi han al Layout on s'ha de mostrar el mapa
         r.removeAllViewsInLayout();
         //Centrem la info del Layout per a que el mapa quedi centrat
@@ -241,6 +250,8 @@ public class EventsSitioActivity extends android.support.v4.app.FragmentActivity
     }
 
     public void showPictures(){
+        ((EventsTabGroupActivity)getParent()).back_id=3;
+        ((EventsTabGroupActivity)getParent()).p=this.p;
         /*RelativeLayout rL = (RelativeLayout) findViewById(R.id.relativeLayoutGeneral);
         rL.removeAllViews();
         init();*/
@@ -269,14 +280,6 @@ public class EventsSitioActivity extends android.support.v4.app.FragmentActivity
 
         Log.v("RELATIVE LAYOUT","   "+rL+"    "+carousel);
         rL.addView(carousel);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.events_sitio, menu);
-        return true;
     }
 
 
