@@ -18,6 +18,8 @@ import cat.andreurm.blacklist.R;
 
 public class EventsTabGroupActivity extends TabGroupActivity {
 
+
+
     public void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         startChildActivity("Principal", new Intent(this, EventsActivity.class));

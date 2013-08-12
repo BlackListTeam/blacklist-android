@@ -2,9 +2,12 @@ package cat.andreurm.blacklist.activities;
 
 import java.util.Locale;
 
+import android.annotation.TargetApi;
+import android.app.LocalActivityManager;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -43,6 +46,7 @@ public class TabHostActivity extends TabActivity {
      */
     ViewPager mViewPager;
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +57,7 @@ public class TabHostActivity extends TabActivity {
         TabHost.TabSpec events = tabHost.newTabSpec("Events");
         events.setIndicator("", getResources().getDrawable(R.drawable.icon_events_tab));
         Intent photosIntent = new Intent(this, EventsTabGroupActivity.class);
+        photosIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         events.setContent(photosIntent);
 
         TabHost.TabSpec messages = tabHost.newTabSpec("Messages");
@@ -76,51 +81,16 @@ public class TabHostActivity extends TabActivity {
         tabHost.addTab(messages);
         tabHost.addTab(code);
         tabHost.addTab(invite);
+        tabHost.setPadding(0,0,0,0);
 
         for(int i = 0; i<tabHost.getTabWidget().getChildCount();i++){
             tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.BLACK);
-            tabHost.getTabWidget().getChildAt(i).getLayoutParams().height = 40;
+            tabHost.getTabWidget().getChildAt(i).getLayoutParams().height = 60;
+            tabHost.getTabWidget().getChildAt(i).setBackground(getResources().getDrawable(R.drawable.bg_menu));
         }
 
-        LinearLayout.LayoutParams tab1=(LinearLayout.LayoutParams) getTabHost().getTabWidget().getChildAt(0).getLayoutParams();
-        LinearLayout.LayoutParams tab2=(LinearLayout.LayoutParams) getTabHost().getTabWidget().getChildAt(1).getLayoutParams();
-        LinearLayout.LayoutParams tab3=(LinearLayout.LayoutParams) getTabHost().getTabWidget().getChildAt(2).getLayoutParams();
-        LinearLayout.LayoutParams tab4=(LinearLayout.LayoutParams) getTabHost().getTabWidget().getChildAt(3).getLayoutParams();
-
-        tab1.topMargin=2;
-        tab2.topMargin=4;
-
-        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
-            @Override
-            public void onTabChanged(String s) {
-
-               int i = getTabHost().getCurrentTab();
-               if(i==0){
-                   /*TabHost.TabSpec events = getTabHost().newTabSpec("Events");
-                   events.setIndicator("", getResources().getDrawable(R.drawable.icon_events_tab));
-                   Intent photosIntent = new Intent(getParent(), EventsTabGroupActivity.class);
-                   events.setContent(photosIntent);*/
-               }
-               else if(i==1){
-                   /*TabHost.TabSpec events = getTabHost().newTabSpec("Messages");
-                   events.setIndicator("", getResources().getDrawable(R.drawable.icon_events_tab));
-                   Intent photosIntent = new Intent(getParent(), ListMessagesTabGroupActivity.class);
-                   events.setContent(photosIntent);*/
-               }
-               else if(i==2){
-                   /*TabHost.TabSpec events = getTabHost().newTabSpec("Code");
-                   events.setIndicator("", getResources().getDrawable(R.drawable.icon_events_tab));
-                   Intent photosIntent = new Intent(getParent(), CodeActivity.class);
-                   events.setContent(photosIntent);*/
-               }
-               else if(i==3){
-                   /*TabHost.TabSpec events = getTabHost().newTabSpec("Invite");
-                   events.setIndicator("", getResources().getDrawable(R.drawable.icon_events_tab));
-                   Intent photosIntent = new Intent(getParent(), InviteActivity.class);
-                   events.setContent(photosIntent);*/
-               }
-            }
-        });
+        tabHost.getTabWidget().setStripEnabled(false);
+        tabHost.getTabWidget().setPadding(0,0,0,0);
 
     }
 

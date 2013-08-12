@@ -2,6 +2,7 @@ package cat.andreurm.blacklist.activities;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
+import android.app.TabActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
@@ -41,6 +42,7 @@ public class ReservationActivity extends Activity implements WebServiceCaller {
     WebService ws;
     Utils u;
     Reservation r;
+    TabActivity tabs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,8 @@ public class ReservationActivity extends Activity implements WebServiceCaller {
         LinearLayout lVip= (LinearLayout) findViewById(R.id.linearLayoutVip);
 
         ImageView imageEvent= (ImageView) findViewById(R.id.textViewImageEvent);
+
+        tabs = (TabActivity) getParent().getParent()    ;
 
         buttonContacto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,13 +181,6 @@ public class ReservationActivity extends Activity implements WebServiceCaller {
         buttonContacto.setTypeface(font);
         buttonContacto.setPaintFlags(buttonContacto.getPaintFlags() | Paint.SUBPIXEL_TEXT_FLAG);
 
-        /*buttonReservar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });*/
-
     }
 
 
@@ -196,7 +193,12 @@ public class ReservationActivity extends Activity implements WebServiceCaller {
         }
         Boolean is_reservated= (Boolean) result.get("reservated");
         if(is_reservated){
+
+            Log.v("Reservation Activity ","  Tabs "+tabs.toString());
+            tabs.getTabHost().setCurrentTab(2);
+
             Intent i = new Intent(getParent(), CodeActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             TabGroupActivity parentActivity = (TabGroupActivity)getParent();
             parentActivity.startChildActivity("Code", i);
         }else{
