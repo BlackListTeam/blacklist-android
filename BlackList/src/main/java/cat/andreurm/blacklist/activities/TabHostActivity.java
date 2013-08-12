@@ -41,7 +41,7 @@ public class TabHostActivity extends TabActivity {
      */
     ViewPager mViewPager;
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    //@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,11 +79,14 @@ public class TabHostActivity extends TabActivity {
         tabHost.setPadding(0,0,0,0);
 
         for(int i = 0; i<tabHost.getTabWidget().getChildCount();i++){
-            tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.BLACK);
-            tabHost.getTabWidget().getChildAt(i).setBackground(getResources().getDrawable(R.drawable.bg_menu));
+            //tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.BLACK);
+            //tabHost.getTabWidget().getChildAt(i).setBackground(getResources().getDrawable(R.drawable.bg_menu));
+            tabHost.getTabWidget().getChildAt(i).setBackgroundResource(R.drawable.bg_menu);
         }
+        //tabHost.setBackgroundColor(Color.BLACK);
+        //tabHost.setBackgroundResource(R.drawable.bg_menu_all);
 
-        tabHost.getTabWidget().setStripEnabled(false);
+        //tabHost.getTabWidget().setStripEnabled(false);
         tabHost.getTabWidget().setPadding(0,0,0,0);
     }
 
