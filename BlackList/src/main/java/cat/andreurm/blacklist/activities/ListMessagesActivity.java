@@ -113,6 +113,7 @@ public class ListMessagesActivity extends Activity implements WebServiceCaller {
                         public void onClick(DialogInterface dialog, int which) {
                             delete = false;
                             message_threads=new Hashtable<String, MessageThread>();
+                            loading_msjs=true;
                             ws.getMessages(u.getSessionId());
                         }
 
