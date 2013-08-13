@@ -112,5 +112,7 @@
     <string name="cancelar">Cancelar</string>
     <string name="title_activity_gallery">GalleryActivity</string>
     <string name="loading">Procesando...</string>
+    <string name="new_notification">Nueva notificación</string>
+    <string name="blacklist">Blacklist</string>
 
 </resources>

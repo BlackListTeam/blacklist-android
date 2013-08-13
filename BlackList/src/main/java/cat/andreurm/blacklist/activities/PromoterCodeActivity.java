@@ -1,28 +1,17 @@
 package cat.andreurm.blacklist.activities;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Activity;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.gcm.GoogleCloudMessaging;
-
-import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.Hashtable;
-import java.util.concurrent.atomic.AtomicInteger;
 
 import cat.andreurm.blacklist.R;
 import cat.andreurm.blacklist.utils.Utils;
@@ -34,8 +23,6 @@ public class PromoterCodeActivity extends Activity implements WebServiceCaller {
     WebService ws;
     Utils u;
     ProgressDialog pdl=null;
-
-
 
 
     @Override
